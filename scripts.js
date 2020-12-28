@@ -32,6 +32,34 @@ function scrollWin() {
 }
 
 /*
+** This function waits until the div with the main background image is loaded and then changes
+** the transparency slowly.
+*/
+window.addEventListener('load', function () {
+    const elem = document.getElementById("main_img_box");
+    elem.addEventListener("load", fadeImg);
+
+
+    function fadeImg () {
+    elem.style.transition = "opacity 4s";
+    elem.style.opacity = "1";
+  }
+  fadeImg();
+})
+/*
+window.onload = init;
+
+    function init() {
+        const elem = document.getElementById("main_img_box");
+        console.log(elem);
+        elem.style.opacity = "0";
+
+        elem.style.transition = "opacity 4s";
+        elem.style.opacity = "1";
+}
+*/
+
+/*
 ** Not my own function, credits to @mozzgov (github).
 ** In jquery, handles the hover dropdown nav menu and turns it into a clickable nav when a touch
 ** screen device is used.
