@@ -1,13 +1,41 @@
-var links = ["#studio", "#footer"]
+var links = [null, "live", "studio", "footer"]
 var i = 0
+const element = document.documentElement;
 
-function changeDirect() {
-    if (i < links.length) {
-        document.getElementById("link_direction").href = links[i];
+/*
+** Function, which triggered the first time, scrolls down so that the thinner
+** "info" div is visible on the bottom of the screen, and each time after, scrolls through
+** the divs listed in the array "links".
+*/
+function scrollWin() {
+    if (i == 0) {
+        /*
+        var intElemClientHeight = element.clientHeight;
+        var halfway = intElemClientHeight / 10 * 6.2;
+        window.scrollBy(0, halfway); */
+        let intViewportHeight = window.innerHeight;
+        window.scrollBy(0, intViewportHeight / 10 * 6.5);
         i += 1;
-        console.log("Hyperlink Changed");
+    }
+    else {
+        if (i < links.length) {
+            var destination = document.getElementById(links[i]);
+            destination.scrollIntoView();
+            console.log(destination);
+            i += 1;
+        }
+        else {
+            window.scrollTo(0,0);
+            i = 0;
+        }
     }
 }
+
+/*
+** Not my own function, credits to @mozzgov (github).
+** In jquery, handles the hover dropdown nav menu and turns it into a clickable nav when a touch
+** screen device is used.
+*/
 
 $(function()
 {
@@ -35,7 +63,7 @@ $(function()
         });
 
     /**
-        Support click to open if dealing with a touchscreen
+    **  Support click to open if dealing with a touchscreen.
      */
     if ('ontouchstart' in document.documentElement) {
         $dropdowns.each(function()
