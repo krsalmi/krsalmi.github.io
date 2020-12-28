@@ -14,6 +14,9 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  text-align: center;
+
+  
 }
 
 .logo {
@@ -28,12 +31,13 @@ html {
   margin: 0 auto;
 }
 
-.arrow {
+img.arrow {
   position: fixed;
-  left: 48%;
+  display: block;
+  margin: auto;
   bottom: 8%;
 
-  display: block;
+ 
 }
 
 .arrow:hover {
