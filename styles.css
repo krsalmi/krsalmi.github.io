@@ -1,22 +1,17 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 #main_img_box {
   position: relative; 
   left: 0; 
   top: 0;
-  height: 100%;
-
   background-image: url("img/lastofus.png");
   height: 100vh; 
   background-attachment: fixed; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  text-align: center;
-
-  
 }
 
 .logo {
@@ -31,13 +26,12 @@ html {
   margin: 0 auto;
 }
 
-img.arrow {
+.arrow {
   position: fixed;
   display: block;
-  margin: auto;
   bottom: 8%;
-
- 
+  left: 50%;
+  transform: translate(-50%, -50%); /* important for centering img even when window size is changed */
 }
 
 .arrow:hover {
@@ -56,12 +50,10 @@ img.arrow {
   height: 100vh;
   background-image: url("img/orchestra.jpg");
   background-position: center;
-
-
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  }
 
 #live_link {
   flex: 0 0 380px;
