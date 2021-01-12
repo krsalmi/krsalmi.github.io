@@ -1,113 +1,113 @@
-html {
-  scroll-behavior: smooth;
-}
 
-#landing_view {
-  position: relative; 
-  left: 0; 
-  top: 0;
-  background-color: rgb(176, 169, 148);
-  height: 100vh; 
-}
-#main_img_box {    
-  content: "";
-  background-image: url("img/lastofus.png");
-  background-size: cover;
-  background-attachment: fixed; 
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+.wrapper {
   width: 100%;
-  height: 100vh;
+  position: relative;
+  z-index: 9999;
+  height: 10px;
 }
 
-.logo {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-
-  display: block;
-  padding-top: 3vh;
-  margin: 0 auto;
+.navbar {
+width: 100%;
+overflow: auto;
 }
 
-.arrow {
-  position: fixed;
-  display: block;
-  bottom: 8%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* important for centering img even when window size is changed */
+.navbar a {
+float: left;
+padding: 20px;
+color: white;
+text-decoration: none;
+font-size: 17px;
+width: 20%; /* Four links of equal widths */
+text-align: center;
 }
 
-.arrow:hover {
-  cursor: pointer;
+.navbar a:hover {
+background: rgb(0, 0, 0);
+background: rgba(100, 100, 100, 0.25);
 }
 
-.window {
-  background-color: white;
+
+/* the logo, which isn't a link */
+a.disabled {
+  pointer-events: none;
 }
 
-#info {
-  height: 60vh;
+/* the menu items, that are usually hidden */
+#hidden_div {
+  width: 60%;
+  display:none;
+  
 }
 
-#live {
-  height: 100vh;
-  background-image: url("img/orchestra.jpg");
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#hidden_div a {
+  width: 30%; /* Four links of equal widths */
+  text-align: center;
+}
+
+/* control styling if window is small */
+@media screen and (max-width: 750px) {
+  
+  #hidden_div {
+    display:block;
+    width:100%;
   }
 
-#live_link {
-  flex: 0 0 380px;
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(100, 100, 100, 0.35); /* Black background with 0.5 opacity */
+    .disabled {
+      position: fixed;
+      left: 70%;
+      bottom: 0px;
+    }
 
-  padding: 20px; 
-  margin: auto;
+    #menu_btn {
+      display: none;
+    }
 }
 
-#live_link:hover {
-  cursor: pointer;
-  background: rgba(100, 100, 100, 0.5);
-}
 
-#studio {
-  height: 100vh;
-  background-image: url("img/percussion.jpg");
-  background-position: center;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* left side ("studio")*/
+  .left {
+    left: 0;
+    background-image: url("img/orchestra.jpg");
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* right side ("live") */
+  .right {
+    right: 0;
+    background-image: url("img/percussion.jpg");
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-#footer {
-  background-color: white; 
-  height: 250px;
-  display: block;
-  position: absolute;
-  width: 100%;
-}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 
-#social_media {
-  width: 300px;
-  display: block;
-  margin: auto;
-}
+ 
+ 
+ a:hover p{
+    color: white;
+    text-decoration: underline;
+ }
 
-.media {
-  width: 100px;
-  float: left;
-  padding-left: 20px;
-}
+ 
