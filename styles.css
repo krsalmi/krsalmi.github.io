@@ -26,10 +26,8 @@ background: rgb(0, 0, 0);
 background: rgba(100, 100, 100, 0.25);
 }
 
-
-/* the logo, which isn't a link */
-a.disabled {
-  pointer-events: none;
+a.to_front_page:hover {
+  background: none;
 }
 
 /* the menu items, that are usually hidden */
@@ -83,6 +81,7 @@ a.disabled {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: rgb(185, 185, 153);
   }
   
   /* right side ("live") */
@@ -93,6 +92,7 @@ a.disabled {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: rgb(119, 159, 182);
   }
 
 .centered {
@@ -103,7 +103,9 @@ a.disabled {
     text-align: center;
   }
 
- 
+  .right:hover, .left:hover {
+    background-blend-mode: luminosity;
+   }
  
  a:hover p{
     color: white;
