@@ -4,11 +4,11 @@
     background-color: black;
     height: 60px;
     overflow: hidden;
-    position: fixed;
+    position: fixed !important;
     top: 0;
     z-index: 1000;
 }
-    
+
 .navbar a {
     float: left;
     color: white;
