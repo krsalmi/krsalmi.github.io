@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles_studio.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts_studio.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Studio</title>
+</head>
+<body>
+    <div class="navbar">
+        <a class="to_front_page" href="#"><img src="img/GMC STUDIO.png" style="width: 160px"></a>
+        <a class="hidden" href="#">REFERENCES</a>
+        <a class="hidden" href="#">SERVICES & BOOKING</a>
+        <a class="hidden" href="#">TEAM</a>
+        <a class="hidden" href="#">CONTACT</a>
+    </div>
+    <div class="carousel">
+        <img class="pics" src="img/druidstone-05-16-19-1.jpg">
+        <img class="pics" src="img/Iron_Danger.jpg">
+        <img class="pics" src="img/maxresdefault-2.jpg">
+        <div class="dots_under">
+            <span class="dot" onclick="curPic(1)"></span> 
+            <span class="dot" onclick="curPic(2)"></span> 
+            <span class="dot" onclick="curPic(3)"></span> 
+        </div>
+    </div>
+    <div class="services">
+        <div class="sub-title">
+            <div class="centered">
+                <p class="display-5">Services & booking</p>
+                <p class="lead">Some information about the sevices and booking part</p>
+            </div>
+        </div>
+        <a href="#"><div class="split_studio left_studio">
+            <div class="centered"><p class="display-5" style="color:white;">Koko paska</p></div>
+        </div></a>
+        <a href="#"><div class="split_studio right_studio">
+            <div class="centered"><p class="display-5" style="color:white;">Pelkka tuotanto</p></div>
+        </div></a>
+    </div>
+    <div class="team">
+        <div class="sub-title">
+            <div class="centered">
+                <p class="display-5">Team</p>
+                <p class="lead">Check out this introductory video</p>
+            </div>
+        </div>
+        <div class="team_video">
+            <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+            gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="sub-title">
+            <div class="centered">
+                <p class="display-5">Contact</p>
+                <p class="lead">Here are ways to contact us</p>
+            </div>
+            <div class="centered contact_info">
+                <p class="lead">email: blaablaa@gmail.com</br>
+                    phone: +35840112233</p>
+            </div>
+    
+        </div>
+        <div id="social_media">
+            <div class="media"><a href="#" class="fa fa-facebook"></a></div>
+            <div class="media"><a href="#" class="fa fa-youtube"></a></div>
+            <div class="media"><a href="#" class="fa fa-instagram"></a></div>
+        </div>
+    </div>
+    <script>
+        var index = 1;
+        var timer = null;
+        displayPics(index);
+    </script>
+</body>
+</html>

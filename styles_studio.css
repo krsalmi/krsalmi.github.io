@@ -1,0 +1,233 @@
+
+.navbar {
+    width: 100%;
+    background-color: black;
+    height: 60px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+    
+.navbar a {
+    float: left;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 20%; /* Four links of equal widths */
+    text-align: center;
+}
+    
+.navbar a:hover {
+    color: rgb(190, 184, 184);
+    text-decoration: none;
+}
+    
+/* control styling if window is small */
+@media screen and (max-width: 750px) {
+    
+    .to_front_page {
+        position: fixed;
+        left: 70%;
+        bottom: 0px;
+    }
+}
+
+.carousel {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+.pics{
+    display: none;
+    width: 100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.dots_under {
+    width: 100px;
+    position: absolute;
+    top: 85vh;
+    left: 50%;
+    margin-left: -50px;
+
+    text-align: center;
+  
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.services {
+    height: 65vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.sub-title {
+    width: 100%;
+    height: 140px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    display: block;
+}
+
+.split_studio {
+    width: 50%;
+    position: absolute;
+   /* z-index: 1; */
+    overflow-x: hidden;
+    height: 100%;;
+    top: 140px;
+  }
+
+  /* left side ("studio")*/
+  .left_studio {
+    left: 0;
+    background-image: url("img/_S2A5272.jpg");
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(167, 158, 158);
+  }
+
+  /* right side ("live") */
+  .right_studio {
+    right: 0;
+    background-image: url("img/violin.png");
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   background-color: rgb(119, 159, 182);
+  }
+
+  .right_studio:hover, .left_studio:hover {
+    background-blend-mode: luminosity;
+   }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  /* control styling if window is small */
+@media screen and (max-width: 600px) {
+
+    .services {
+        height: 90vh;
+    }
+
+    .sub-title {
+      height: 200px;
+    }
+  
+    .split_studio {
+        top: 200px;
+    }
+}
+  
+.team {
+    height: 500px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.team_video {
+    width: 100%;
+    position: absolute;
+   /* z-index: 1; */
+    overflow-x: hidden;
+    height: 400px;
+    top: 140px;
+    text-align: center;
+}
+
+.contact {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.contact_info {
+    padding-top: 20px;
+    top: 140px;
+    position: absolute;
+    height: 60px;
+    text-align: center;
+}
+
+#social_media {
+
+    width: 300px;
+    display: block;
+    margin: auto;
+
+    height: 100px;
+    bottom: 0;
+    text-align: center;
+    position: absolute;
+
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+  }
+
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+
+  .media {
+    width: 100px;
+    float: left;
+    padding: 20px;
+  }
