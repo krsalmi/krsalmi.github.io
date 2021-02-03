@@ -1,0 +1,72 @@
+
+ $animate: all 0.2s ease-in-out;
+
+
+ /** By developer Matthew Scott. */
+ /** Found on: https://speckyboy.com/underline-text-effects-css/ **/
+ 
+ /** Hover-related CSS **/
+     
+ .hover {
+   transition: $animate;
+   position: relative;
+   &:before,
+   &:after {
+     content: "";
+     position: absolute;
+     bottom: -10px;
+     width: 0px;
+     height: 5px;
+     margin: 5px 0 0;
+     transition: $animate;
+     transition-duration: 0.75s;
+     opacity: 0;
+     background-color: darken(rgb(163, 0, 0),5%);
+   }
+   &.hover-1 {
+     &:before,
+     &:after {
+       left: 0;
+     }
+   }
+   &.hover-2 {
+     &:before,
+     &:after {
+       right: 0;
+     }
+   }
+   &.hover-3 {
+     &:before {
+       left: 50%;
+     }
+     &:after {
+       right: 50%;
+     }
+   }
+   &.hover-4 {
+     &:before {
+       left: 0;
+     }
+     &:after {
+       right: 0;
+     }
+   }
+ }
+ .underline_box:hover {
+   cursor: pointer;
+   .hover {
+     &:before,
+     &:after {
+       width: 100%;
+       opacity: 1;
+     }
+     &.hover-3,
+     &.hover-4 {
+       &:before,
+       &:after {
+         width: 50%;
+       }
+     }
+   }
+ }
+ 

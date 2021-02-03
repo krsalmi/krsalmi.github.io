@@ -1,0 +1,61 @@
+/** By developer Matthew Scott. */
+/** Found on: https://speckyboy.com/underline-text-effects-css/ **/
+/** Hover-related CSS **/
+.hover {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.hover:before, .hover:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 0px;
+  height: 5px;
+  margin: 5px 0 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition-duration: 0.75s;
+          transition-duration: 0.75s;
+  opacity: 0;
+  background-color: #8a0000;
+}
+
+.hover.hover-1:before, .hover.hover-1:after {
+  left: 0;
+}
+
+.hover.hover-2:before, .hover.hover-2:after {
+  right: 0;
+}
+
+.hover.hover-3:before {
+  left: 50%;
+}
+
+.hover.hover-3:after {
+  right: 50%;
+}
+
+.hover.hover-4:before {
+  left: 0;
+}
+
+.hover.hover-4:after {
+  right: 0;
+}
+
+.underline_box:hover {
+  cursor: pointer;
+}
+
+.underline_box:hover .hover:before, .underline_box:hover .hover:after {
+  width: 100%;
+  opacity: 1;
+}
+
+.underline_box:hover .hover.hover-3:before, .underline_box:hover .hover.hover-3:after, .underline_box:hover .hover.hover-4:before, .underline_box:hover .hover.hover-4:after {
+  width: 50%;
+}
+/*# sourceMappingURL=styles_links.css.map */

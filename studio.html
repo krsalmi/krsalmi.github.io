@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="styles_studio.css">
+    <link rel="stylesheet" href="scss/styles_links.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="scripts_studio.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -12,73 +13,100 @@
     <title>Studio</title>
 </head>
 <body>
-    <div class="navbar">
-        <a class="to_front_page" href="index.html"><img src="img/GMC STUDIO.png" style="width: 160px"></a>
-        <a class="hidden" href="#">REFERENCES</a>
-        <a class="hidden" href="#">SERVICES & BOOKING</a>
-        <a class="hidden" href="#">TEAM</a>
-        <a class="hidden" href="#">CONTACT</a>
-    </div>
-    <div class="carousel">
-        <img class="pics" src="img/druidstone-05-16-19-1.jpg">
-        <img class="pics" src="img/Iron_Danger.jpg">
-        <img class="pics" src="img/maxresdefault-2.jpg">
-        <div class="dots_under">
-            <span class="dot" onclick="curPic(1)"></span> 
-            <span class="dot" onclick="curPic(2)"></span> 
-            <span class="dot" onclick="curPic(3)"></span> 
+    <div id="scroll-container" class="scroll-container">
+        <div class="navbar shadow mb-5 rounded">
+            <a class="to_front_page" href="index.html"><img src="img/GMC STUDIO.png" style="width: 160px"></a>
+            <a class="hidden underline_box" href="#">
+                <span class="hover hover-3">REFERENCES</span></a>
+            <a class="hidden underline_box" href="#">
+                <span class="hover hover-3">SERVICES & BOOKING</span></a>
+            <a class="hidden underline_box" href="#">
+                <span class="hover hover-3">TEAM</span></a>
+            <a class="hidden underline_box" href="#">
+                <span class="hover hover-3">CONTACT</span></a>
         </div>
-    </div>
-    <div class="services">
-        <div class="sub-title">
-            <div class="centered">
-                <p class="display-5">Services & booking</p>
-                <p class="lead">Some information about the sevices and booking part</p>
+        <section id="sect_carousel">
+            <div id="carousel" class="carousel" onmouseover="displaySlowlyOnHover(0)" 
+                onmouseout="hideElement()">
+                <img class="pics fade-pics" src="img/druidstone-05-16-19-1.jpg">
+                <img class="pics fade-pics" src="img/Iron_Danger.jpg">
+                <img class="pics fade-pics" src="img/maxresdefault-2.jpg">
+                <div class="dots_under">
+                    <span class="dot" onclick="curPic(1)"></span> 
+                    <span class="dot" onclick="curPic(2)"></span> 
+                    <span class="dot" onclick="curPic(3)"></span> 
+                </div>
+            
             </div>
-        </div>
-        <a href="#"><div class="split_studio left_studio">
-            <div class="centered"><p class="display-5" style="color:white;">Koko paska</p></div>
-        </div></a>
-        <a href="#"><div class="split_studio right_studio">
-            <div class="centered"><p class="display-5" style="color:white;">Pelkka tuotanto</p></div>
-        </div></a>
-    </div>
-    <div class="team">
-        <div class="sub-title">
-            <div class="centered">
-                <p class="display-5">Team</p>
-                <p class="lead">Check out this introductory video</p>
+            <div id="carousel-arrows" class="carousel-arrows" onmouseover="displaySlowlyOnHover(0)">
+                <a class="prev" onclick="nextPic(-1)">&#10094;</a>
+                <a class="next" onclick="nextPic(1)">&#10095;</a>
             </div>
-        </div>
-        <div class="team_video">
-            <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-            gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-    <div class="contact">
-        <div class="sub-title">
-            <div class="centered">
-                <p class="display-5">Contact</p>
-                <p class="lead">Here are ways to contact us</p>
+        </section>
+        <section id="sect_services">
+            <div class="under_navbar"></div>
+            <div id="services" class="services">
+                <div class="sub-title">
+                    <div class="centered">
+                        <p class="display-5">Services & booking</p>
+                        <p class="lead">Some information about the sevices and booking part</p>
+                    </div>
+                </div>
+                <a href="#"><div class="split_studio left_studio underline_box">
+                    <div class="centered"><p class="display-5 hover hover-3" 
+                        style="color:white;">KOKO PASKA</p></div>
+                </div></a>
+                <a href="#"><div class="split_studio right_studio underline_box">
+                    <div class="centered"><p class="display-5 hover hover-3" 
+                        style="color:white;">PELKKA TUOTANTO</p></div>
+                </div></a>
             </div>
-            <div class="centered contact_info">
-                <p class="lead">email: blaablaa@gmail.com</br>
-                    phone: +35840112233</p>
+        </section>
+        <section id="sect_team">
+            <div class="under_navbar"></div>
+            <div id="team" class="team">
+                <div class="sub-title">
+                    <div class="centered">
+                        <p class="display-5">Team</p>
+                        <p class="lead">Check out this introductory video</p>
+                    </div>
+                </div>
+                <div class="team_video">
+                    <iframe width="896" height="504" 
+                    src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                    gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
-    
-        </div>
-        <div id="social_media">
-            <div class="media"><a href="#" class="fa fa-facebook"></a></div>
-            <div class="media"><a href="#" class="fa fa-youtube"></a></div>
-            <div class="media"><a href="#" class="fa fa-instagram"></a></div>
-        </div>
+        </section>
+        <section id="sect_contact">
+            <div class="under_navbar"></div>
+            <div is="contact" class="contact">
+                <div class="sub-title">
+                    <div class="centered underline_box">
+                        <p class="display-5"><span class="hover hover-1">Contact</span></p>
+                        <p class="lead">Here are ways to contact us</p>
+                    </div>
+                    <div class="centered contact_info">
+                        <p class="lead">email: blaablaa@gmail.com</br>
+                            phone: +35840112233</p>
+                    </div>
+            
+                </div>
+                <div id="social_media">
+                    <div class="media"><a href="#" class="fa fa-facebook"></a></div>
+                    <div class="media"><a href="#" class="fa fa-youtube"></a></div>
+                    <div class="media"><a href="#" class="fa fa-instagram"></a></div>
+                </div>
+            </div>
+        </section>
     </div>
     <script>
         var index = 1;
         var timer = null;
         displayPics(index);
+        document.querySelector('#scroll-container').addEventListener("scroll", changeColorUnderNavbar);
+        //document.addEventListener("scroll", limitScrolls);
     </script>
 </body>
 </html>

@@ -13,11 +13,12 @@ overflow: auto;
 
 .navbar a {
 float: left;
-padding: 20px;
+/* padding: 20px; */
 color: white;
 text-decoration: none;
 font-size: 17px;
-width: 20%; /* Four links of equal widths */
+/* width: 20%; Four links of equal widths if the menu was actually shown, but to place the logo:*/
+width: 19.5%;
 text-align: center;
 }
 
@@ -109,7 +110,4 @@ a.to_front_page:hover {
  
  a:hover p{
     color: white;
-    text-decoration: underline;
  }
-
- 
