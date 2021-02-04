@@ -33,6 +33,29 @@ function hideElement(stay_visible) {
 
 }
 
+ /* This function checks to see if any of the 'sections' in the 'section_list'
+ is displayed at the top of the window. If so, it searches for the second child of
+ that 'selection' (which is the .under_navbar div) and changes its background color,
+ because otherwise the see-through menu bar wouldn't be properly visible. If the
+ element is not at the top of the screen, its child div will be white.
+ */
+
+function changeColorUnderNavbar() {
+    var section_list = ["sect_services", "sect_team", "sect_contact"];
+    section_list.forEach(checkPos);
+    function checkPos(item){
+        var sect_item = document.getElementById(item);
+        var under_nav = sect_item.childNodes;
+        if (sect_item.getBoundingClientRect().top == 0) {
+            under_nav[1].style.backgroundColor = "#A30000";
+            under_nav[1].classList.add("fade-in-div");
+        } else {
+            under_nav[1].style.backgroundColor = 'white';
+            under_nav[1].classList.remove("fade-in-div");
+        }
+    }
+}
+
 /* Inspired by W3.School
 Image carousel slideshow with automatic as well as manual changing.
 When the image changes, if the cursor is on the 'carousel' div,
@@ -77,24 +100,3 @@ it will send to 'displaySlowlyOnHover' as the special 'else' case.
      var arrows = document.getElementById("carousel-arrows")
      carousel.addEventListener("mouseover", displaySlowlyOnHover);
  }
-
- /* This function checks to see if any of the 'sections' in the 'section_list'
- is displayed at the top of the window. If so, it searches for the second child of
- that 'selection' (which is the .under_navbar div) and changes its background color,
- because otherwise the see-through menu bar wouldn't be properly visible. If the
- element is not at the top of the screen, its child div will be white.
- */
-
- function changeColorUnderNavbar() {
-    var section_list = ["sect_services", "sect_team", "sect_contact"];
-    section_list.forEach(checkPos);
-    function checkPos(item){
-        var sect_item = document.getElementById(item);
-        var under_nav = sect_item.childNodes;
-        if (sect_item.getBoundingClientRect().top == 0) {
-            under_nav[1].style.backgroundColor = "#A30000";
-        } else {
-            under_nav[1].style.backgroundColor = 'white';
-        }
-    }
-}

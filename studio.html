@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="team_video">
-                    <iframe width="896" height="504" 
+                    <iframe width="560" height="315" 
                     src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
                     gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -81,17 +81,16 @@
         </section>
         <section id="sect_contact">
             <div class="under_navbar"></div>
-            <div is="contact" class="contact">
-                <div class="sub-title">
-                    <div class="centered underline_box">
+            <div id="contact" class="contact">
+                <div class="sub-title-contact">
+                    <div class="underline_box">
                         <p class="display-5"><span class="hover hover-1">Contact</span></p>
-                        <p class="lead">Here are ways to contact us</p>
                     </div>
-                    <div class="centered contact_info">
+                    <div class="contact_info">
+                        <p class="lead">Here are ways to contact us</p>
                         <p class="lead">email: blaablaa@gmail.com</br>
                             phone: +35840112233</p>
                     </div>
-            
                 </div>
                 <div id="social_media">
                     <div class="media"><a href="#" class="fa fa-facebook"></a></div>
@@ -106,7 +105,6 @@
         var timer = null;
         displayPics(index);
         document.querySelector('#scroll-container').addEventListener("scroll", changeColorUnderNavbar);
-        //document.addEventListener("scroll", limitScrolls);
     </script>
 </body>
 </html>

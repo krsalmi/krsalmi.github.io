@@ -25,11 +25,6 @@ body a:hover {
     text-align: center;
 }
     
-/* .navbar a:hover { */
-    /* color: rgb(190, 184, 184); */
-    /* text-decoration: none; */
-/* } */
-    
 /* control styling if window is small */
 @media screen and (max-width: 750px) {
     
@@ -86,8 +81,6 @@ body a:hover {
 
 .carousel-arrows:hover {
     display:block;
-    /* color: rgb(68, 66, 66) !important; */
-    /* text-decoration: none; */
 } 
 
 /* Next & previous buttons */
@@ -203,29 +196,44 @@ body a:hover {
 }
 
 .team_video {
-    width: 100%;
-    position: absolute;
-   /* z-index: 1; */
-    overflow-x: hidden;
-    height: 400px;
-    top: 140px;
-    text-align: center;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+
+}
+.team_video iframe{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 140px;
+  width: 90%;
+  height: 90%;
+
 }
 
 .contact {
-    height: 300px;
+  padding-top: 100px;;
+    height: 90vh;
     width: 100%;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     text-align: center;
 }
 
 .contact_info {
     padding-top: 20px;
-    top: 140px;
-    position: absolute;
+    position: relative;
     height: 60px;
     text-align: center;
+}
+
+.sub-tite-contact {
+  width: 100%;
+  height: 140px;
+  background-color: white;
+  position: relative;
+  display: block;
 }
 
 #social_media {
@@ -233,12 +241,10 @@ body a:hover {
     width: 300px;
     display: block;
     margin: auto;
-
     height: 100px;
     bottom: 0;
     text-align: center;
     position: absolute;
-
     left: 50%;
     transform: translate(-50%, 0);
 }
@@ -426,6 +432,3 @@ section {
   background-color: rgb(255, 255, 255);
 }
 
-.switch_color {
-  background-color: rgb(163, 0, 0);
-}
