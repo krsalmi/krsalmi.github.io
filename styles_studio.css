@@ -84,11 +84,11 @@ body a:hover {
   display: none;
 }
 
-/* .carousel-arrows:hover {
+.carousel-arrows:hover {
     display:block;
-    color: rgb(68, 66, 66) !important;
-    text-decoration: none;
-} */
+    /* color: rgb(68, 66, 66) !important; */
+    /* text-decoration: none; */
+} 
 
 /* Next & previous buttons */
 .prev, .next {

@@ -1,33 +1,36 @@
 /* These two functions control the (fade-in/fade-out displaying) of the 
 'carousel-arrows' which are situated on each side of the carousel images.
 The 'else' case in the first function is for when an image is changed
-automatically by the slideshow. In this case, the display:block has to 
+automatically by the slideshow or we don't want any fade to happen and the
+display to stay as 'block'. In this case, the display:block has to 
 happen with a slight delay, otherwise it is overturned by the original
 display:none in the 'carousel-arrows'.
 */
 
-function displaySlowlyOnHover(from_pic) {
+function displaySlowlyOnHover(stay_visible) {
     const element = document.getElementById('carousel-arrows');
-    if (from_pic  === 0) {
+    if (stay_visible  === 0) {
         element.classList.remove("fade-out-div");
         element.classList.add("fade-in-div");
         element.style.display = "block";
     } else {
-        console.log("from pic");
         setTimeout(function(){
             element.style.display = "block";
         }, 500);
     }
 }
 
-function hideElement() {
+function hideElement(stay_visible) {
     const element = document.getElementById('carousel-arrows');
-    element.classList.remove("fade-in-div");
-    element.classList.add("fade-out-div");
-    setTimeout(function() {
-    element.style.display = "none";
-    //console.log("im hiding and timer");
-   }, 500);
+    if (stay_visible === 0){
+        element.classList.remove("fade-in-div");
+        element.classList.add("fade-out-div");
+        setTimeout(function() {
+        element.style.display = "none";
+        //console.log("im hiding and timer");
+        }, 500);
+    }
+
 }
 
 /* Inspired by W3.School
