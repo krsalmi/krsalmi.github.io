@@ -62,8 +62,6 @@ a.to_front_page:hover {
     }
 }
 
-
-
 .split {
     height: 100%;
     width: 50%;
@@ -77,23 +75,23 @@ a.to_front_page:hover {
   /* left side ("studio")*/
   .left {
     left: 0;
-    background-image: url("img/orchestra.jpg");
+    background-image: url("img/Etusivu\ studio.001.jpeg");
     display: block;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgb(185, 185, 153);
+    background-color: rgb(44, 57, 92);
   }
   
   /* right side ("live") */
   .right {
     right: 0;
-    background-image: url("img/percussion.jpg");
+    background-image: url("img/Etusivu\ live.001.jpeg");
     display: block;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgb(119, 159, 182);
+    background-color: rgb(143, 76, 76);
   }
 
 .centered {
@@ -105,7 +103,7 @@ a.to_front_page:hover {
   }
 
   .right:hover, .left:hover {
-    background-blend-mode: luminosity;
+    background-blend-mode: lighten;
    }
  
  a:hover p{
