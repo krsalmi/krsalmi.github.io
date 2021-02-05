@@ -1,3 +1,18 @@
+@font-face {
+  font-family: AnaheimGothic;
+  src: url(AnaheimGothic.otf);
+}
+
+html h1, a {
+  font-family: AnaheimGothic;
+  color: white;
+}
+
+.header_p {
+  font-family: AnaheimGothic;
+  color: black;
+}
+
 html {
     scroll-behavior: smooth;
   }
