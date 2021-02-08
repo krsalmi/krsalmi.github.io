@@ -3,7 +3,10 @@
   src: url(AnaheimGothic.otf);
 }
 
-html h1, a {
+html {
+  scroll-behavior: smooth;
+}
+h1, a {
   font-family: AnaheimGothic;
   color: white;
 }
@@ -13,9 +16,6 @@ html h1, a {
   color: black;
 }
 
-html {
-    scroll-behavior: smooth;
-  }
 body a:hover {
     color:rgb(255, 255, 255);
     text-decoration: none;
@@ -31,22 +31,109 @@ body a:hover {
     z-index: 1000;
 }
 
-.navbar a {
-    float: left;
+.to_be_hidden {
+  width: 80%;
+  display: flex;
+  position:absolute;
+  left:20%;
+}
+
+.to_be_hidden a {
+    float: right;
     color: white;
     text-decoration: none;
     font-size: 17px;
-    width: 20%; /* Four links of equal widths */
+    width: 25%; /* Four links of equal widths */
     text-align: center;
 }
     
+.to_front_page {
+  float: right;
+  width: 20%;
+ text-align: center;
+}
+
+.collapse_menu {
+  display: none;
+  position: absolute;
+  right: 15px;
+}
+
+#navbarSupportedContent {
+  display: none;
+  width: 140px;
+  margin: auto;
+  right:0;
+  float: left;
+  padding:20px;
+}
+#navbarSupportedContent a {
+  color: white;
+  font-style: none;
+}
+
+.menu_button {
+  cursor: pointer;
+}
+
 /* control styling if window is small */
-@media screen and (max-width: 750px) {
-    
+@media screen and (max-width: 800px) {
     .to_front_page {
-        position: fixed;
-        left: 70%;
-        bottom: 0px;
+      position: absolute;
+      top:8px;
+    }
+    .to_be_hidden {
+      display: none;
+    }
+    .collapse_menu {
+      display: block;
+      z-index: 300;
+    }
+    .dots_under {
+      display: none;
+    }
+    .centered {
+      padding-top: 0px;
+    }
+    .services {
+      height: 90vh;
+  }
+
+  .sub-title {
+    height: 260px;
+  }
+
+  .float_container {
+      min-height: 340px;
+      height: 50%;
+  }
+  .split_studio {
+    top: 260px;
+      min-height: 340px;
+      height: 50%;
+  }
+}
+
+  /* control styling if window is small */
+  @media screen and (max-width: 600px) {
+
+    .services {
+        height: 90vh;
+    }
+
+    .sub-title {
+      height: 260px;
+    }
+  
+    .split_studio {
+        top: 210px;
+        min-height: 340px;
+    }
+    .centered {
+      padding-top: 0px;
+    }
+    .float_container {
+      margin-top: 210px !important;
     }
 }
 
@@ -98,8 +185,16 @@ body a:hover {
     display:block;
 } 
 
-/* Next & previous buttons */
 .prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 20%;
+  height: 50%;
+  width: 20%;
+}
+
+/* Next & previous buttons */
+.prev_arrow, .next_arrow {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -119,9 +214,12 @@ body a:hover {
     right: 0;
     border-radius: 3px 0 0 3px;
   }
+.next_arrow {
+  right: 0;
+}
   
   /* On hover, add a black background color with a little bit see-through */
-  .prev, .next {
+  .prev_arrow, .next_arrow {
     background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
     background: rgba(204, 204, 204, 0.3);
     z-index: 100;
@@ -136,47 +234,77 @@ body a:hover {
 
 .sub-title {
     width: 100%;
-    height: 140px;
+    height: 180px;
     background-color: white;
     position: absolute;
     top: 0;
     display: block;
 }
 
+.float_container {
+  margin-top: 180px;
+
+  display: flex;
+  min-height: 400px;
+  height: 60vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
 .split_studio {
-    width: 50%;
-    position: absolute;
-   /* z-index: 1; */
-    overflow-x: hidden;
-    height: 100%;
-    top: 140px;
+    /* position: absolute;
+/*
+    min-height: 400px;
+    top: 180px;
+
+
+    z-index: 1;
+     */
+     min-height: 400px;
+     overflow: hidden;
+    height: 60vh;
+    width: 50vw;
   }
 
-  /* left side ("studio")*/
   .left_studio {
-    left: 0;
+    float:left;
     background-image: url("img/closeup.jpg");
-    display: block;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(167, 158, 158);
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
   }
 
-  /* right side ("live") */
+
   .right_studio {
-    right: 0;
+    float: right;
     background-image: url("img/violin.png");
-    display: block;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
    background-color: rgb(119, 159, 182);
+   width: 100%;
+   height: 100%;
+   transition: all 1s;
+
   }
 
   .right_studio:hover, .left_studio:hover {
     background-blend-mode: luminosity;
+    transform: scale(1.2);
    }
+
+.s_b {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 234px;
+  text-align: center;
+}
 
   .centered {
     position: absolute;
@@ -184,47 +312,41 @@ body a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    padding-top: 30px;
   }
-
-  /* control styling if window is small */
-@media screen and (max-width: 600px) {
-
-    .services {
-        height: 90vh;
-    }
-
-    .sub-title {
-      height: 200px;
-    }
-  
-    .split_studio {
-        top: 200px;
-    }
-}
   
 .team {
-    height: 500px;
+    height: 200px;
     width: 100%;
     position: relative;
     overflow: hidden;
     text-align: center;
 }
 
-.team_video {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; 
-  height: 0;
-
+.videowrapper {
+  width:100%;
+  max-width: 600px;
+  margin: auto;
 }
-.team_video iframe{
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  top: 140px;
-  width: 90%;
-  height: 90%;
 
+.team_video {
+  overflow: hidden;
+  position: relative;
+  width:100%;
+}
+
+.team_video::after {
+  padding-top: 56.25%;
+  display: block;
+  content: '';
+}
+
+.team_video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .contact {
@@ -430,6 +552,7 @@ body a:hover {
  .scroll-container {
   overflow: scroll;
   height: 100vh;
+  min-height: 600px;
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
@@ -437,6 +560,7 @@ body a:hover {
 
 section {
   height: 100vh;
+  min-height: 600px;
   scroll-snap-align: start;
   /* scroll-snap-stop: always; */
   position: relative;

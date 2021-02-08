@@ -1,36 +1,84 @@
+
+var scroll_index = 0;
+
+/* This function listens to the change in video fullscreen settings, and
+when it is out of fullscreen, the window is scrolled where it should be, by 
+the video. Otherwise, the window would be scrolled to the top of the page.
+*/
+window.addEventListener('DOMContentLoaded', function () {
+
+    var sect_team = document.getElementById("sect_team");
+
+    document.addEventListener("fullscreenchange", function() {
+        scroll_index++;
+        if (scroll_index % 2 == 0) {
+            sect_team.scrollIntoView();
+        }
+    }, false);
+
+    document.addEventListener("msfullscreenchange", function() {
+        scroll_index++;
+        if (scroll_index % 2 == 0) {
+            sect_team.scrollIntoView();
+        }
+    }, false);
+
+    document.addEventListener("mozfullscreenchange", function() {
+        scroll_index++;
+        if (scroll_index % 2 == 0) {
+            sect_team.scrollIntoView();
+        }
+    }, false);
+
+    document.addEventListener("webkitfullscreenchange", function() {
+        scroll_index++;
+        if (scroll_index % 2 == 0) {
+            sect_team.scrollIntoView();
+        }
+    }, false);
+})
 /* These two functions control the (fade-in/fade-out displaying) of the 
 'carousel-arrows' which are situated on each side of the carousel images.
 The 'else' case in the first function is for when an image is changed
 automatically by the slideshow or we don't want any fade to happen and the
 display to stay as 'block'. In this case, the display:block has to 
 happen with a slight delay, otherwise it is overturned by the original
-display:none in the 'carousel-arrows'.
+display:none in the 'carousel-arrows'. Also, if screen width is smaller
+than 800, nothing will happen at all.
 */
 
 function displaySlowlyOnHover(stay_visible) {
+    var w = window.innerWidth;
     const element = document.getElementById('carousel-arrows');
-    if (stay_visible  === 0) {
-        element.classList.remove("fade-out-div");
-        element.classList.add("fade-in-div");
-        element.style.display = "block";
-    } else {
-        setTimeout(function(){
+
+    if (w > 800) {
+        if (stay_visible  === 0) {
+            element.classList.remove("fade-out-div");
+            element.classList.add("fade-in-div");
             element.style.display = "block";
-        }, 500);
+        } else {
+            setTimeout(function(){
+                element.style.display = "block";
+            }, 500);
+        }
     }
 }
 
-function hideElement(stay_visible) {
-    const element = document.getElementById('carousel-arrows');
-    if (stay_visible === 0){
-        element.classList.remove("fade-in-div");
-        element.classList.add("fade-out-div");
-        setTimeout(function() {
-        element.style.display = "none";
-        //console.log("im hiding and timer");
-        }, 500);
-    }
 
+function hideElement(stay_visible) {
+    var w = window.innerWidth;
+    const element = document.getElementById('carousel-arrows');
+
+    if (w > 800) {
+        if (stay_visible === 0){
+            element.classList.remove("fade-in-div");
+            element.classList.add("fade-out-div");
+            setTimeout(function() {
+            element.style.display = "none";
+            //console.log("im hiding and timer");
+            }, 500);
+        }
+    }
 }
 
  /* This function checks to see if any of the 'sections' in the 'section_list'
@@ -99,4 +147,20 @@ it will send to 'displaySlowlyOnHover' as the special 'else' case.
      var carousel = document.getElementById("carousel");
      var arrows = document.getElementById("carousel-arrows")
      carousel.addEventListener("mouseover", displaySlowlyOnHover);
+ }
+
+ var menu_i = 0;
+ function displayMenu() {
+    var navigation = document.getElementById("navbar");
+    menu_i++;
+    if (menu_i % 2 != 0) {
+        navigation.style.height="254px";
+        document.getElementById("navbarSupportedContent").style.display="block";
+        document.getElementById("collapse_menu").style.backgroundColor="rgba(19, 18, 18, 0.4)";
+    } else {
+        navigation.style.height="65px";
+        document.getElementById("navbarSupportedContent").style.display="none";
+        document.getElementById("collapse_menu").style.backgroundColor="";
+    }
+        
  }

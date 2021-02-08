@@ -14,16 +14,38 @@
 </head>
 <body>
     <div id="scroll-container" class="scroll-container">
-        <div class="navbar shadow mb-5 rounded">
+        <div id="navbar" class="navbar shadow mb-5 rounded">
             <a class="to_front_page" href="index.html"><img src="img/GMC STUDIO.png" style="width: 160px"></a>
-            <a class="hidden underline_box" href="#">
-                <span class="hover hover-3">REFERENCES</span></a>
-            <a class="hidden underline_box" href="#">
-                <span class="hover hover-3">SERVICES & BOOKING</span></a>
-            <a class="hidden underline_box" href="#">
-                <span class="hover hover-3">TEAM</span></a>
-            <a class="hidden underline_box" href="#">
-                <span class="hover hover-3">CONTACT</span></a>
+            <div class="to_be_hidden">
+                <a class="hidden underline_box" href="#sect_carousel">
+                    <span class="hover hover-3">REFERENCES</span></a>
+                <a class="hidden underline_box" href="#sect_services">
+                    <span class="hover hover-3">SERVICES & BOOKING</span></a>
+                <a class="hidden underline_box" href="#sect_team">
+                    <span class="hover hover-3">TEAM</span></a>
+                <a class="hidden underline_box" href="#sect_contact">
+                    <span class="hover hover-3">CONTACT</span></a>
+            </div>
+            <div id="collapse_menu" class="collapse_menu">
+                <img class="menu_button" alt="menu icon" src="img/toggle-menu-icon-png-8-Transparent-Images.png" 
+                style="height: 35px; padding-right: 20px;" onclick="displayMenu()">
+                  <div id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#sect_carousel">REFERENCES</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#sect_services">SERVICES & BOOKING</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#sect_team">TEAM</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#sect_contact">CONTACT</a>
+                      </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <section id="sect_carousel">
             <div id="carousel" class="carousel" onmouseover="displaySlowlyOnHover(0)" 
@@ -37,8 +59,8 @@
                     <span class="dot" onclick="curPic(3)"></span> 
                 </div>
                 <div id="carousel-arrows" class="carousel-arrows">
-                    <a class="prev" onclick="nextPic(-1)">&#10094;</a>
-                    <a class="next" onclick="nextPic(1)">&#10095;</a>
+                    <a class="prev" onclick="nextPic(-1)"><div class="prev_arrow">&#10094;</div></a>
+                    <a class="next" onclick="nextPic(1)"><div class="next_arrow">&#10095;</div></a>
                 </div>
             </div>
            
@@ -48,18 +70,26 @@
             <div id="services" class="services">
                 <div class="sub-title">
                     <div class="centered">
-                        <h1 class="header_p">Services & booking</h1>
-                        <p class="lead">Some information about the sevices and booking part</p>
+                        <div class="underline_box">
+                            <h1 class="header_p hover-3 hover">Services & booking</h1>
+                        </div>
+                        <br><p class="lead">Some information about the sevices and booking part</br></p>
                     </div>
                 </div>
-                <a href="#"><div class="split_studio left_studio underline_box">
-                    <div class="centered"><h1 class="hover hover-3" 
-                        style="color:white;">KOKO PASKA</h1></div>
-                </div></a>
-                <a href="#"><div class="split_studio right_studio underline_box">
-                    <div class="centered"><h1 class="hover hover-3" 
-                        style="color:white;">PELKKA TUOTANTO</h1></div>
-                </div></a>
+                <div class="float_container">
+                    <a href="#"><div class="split_studio underline_box">
+                        <div class="left_studio">
+                            <div class="s_b"><h1><span class="hover hover-3" 
+                                style="color:white;">KOKO PASKA</span></h1></div>
+                            </div>
+                    </div></a>
+                    <a href="#"><div class="split_studio underline_box">
+                        <div class="right_studio">
+                            <div class="s_b"><h1><span class="hover hover-3" 
+                                style="color:white;">PELKKA TUOTANTO</span></h1></div>
+                            </div>
+                    </div></a>
+                </div>
             </div>
         </section>
         <section id="sect_team">
@@ -67,17 +97,21 @@
             <div id="team" class="team">
                 <div class="sub-title">
                     <div class="centered">
-                        <h1 class="header_p">Team</h1>
-                        <p class="lead">Check out this introductory video</p>
+                        <div class="underline_box">
+                            <h1 class="header_p hover-3 hover">Team</h1>
+                        </div>
+                        <br><p class="lead">Check out this introductory video</p>
                     </div>
                 </div>
-                <div class="team_video">
-                    <iframe width="560" height="315" 
-                    src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-                    gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
             </div>
+            <div class="videowrapper">
+            <div class="team_video">
+             <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/7jyU8H6twWY" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                        gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
         </section>
         <section id="sect_contact">
             <div class="under_navbar"></div>

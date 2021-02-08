@@ -15,7 +15,7 @@
         <div class="navbar">
             
             <a class="to_front_page" href="index.html"><img src="img/small_logo.png" style="width: 140px"></a>
-            <div id="hidden_div" onmouseover="showElement()" onmouseleave="hideElement()">
+            <div id="hidden_div">
                 <a class="hidden" href="#">ABOUT US</a> 
                 <a class="hidden" href="#">GMC TIMES</a> 
                 <a class="hidden" href="#">CONTACT</a>
@@ -23,14 +23,26 @@
         <!---   <a id="menu_btn" class="active" href="#" onmouseover="showElement()" onmouseleave="hideElement()">MENU</a>  -->
         </div>
     </div>
-
-    <a href="#"><div class="split left  underline_box">
-        <div class="centered"><h1>
-            <span class="hover hover-3">LIVE</span></h1></div>
-    </div></a>
-    <a href="studio.html"><div class="split right  underline_box">
-        <div class="centered"><h1>
-            <span class="hover hover-3">STUDIO</span></h1></div>
-    </div></a>
+    <div class="float_container">
+        <a href="#"><div class="split underline_box">
+            <div class="left zoom-in">
+                <div class="center_live"><h1>
+                    <span class="hover hover-3">LIVE</span></h1></div>
+            </div>
+        </div></a>
+        <a href="studio.html"><div class="split underline_box">
+            <div class="right zoom-in">
+                <div class="center_studio"><h1>
+                    <span class="hover hover-3">STUDIO</span></h1>
+                </div>
+            </div>
+        </div></a>
+    </div>
+    <div class="quote">
+        <img src="img/clipart626013.png" alt="Quotation marks" width="60px">
+        <p style="color: white;
+        font-family: Verdana;
+        font-style: italic;">Game music with purpose, passion and rigour</p>
+    </div>
 </body>
 </html>

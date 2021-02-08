@@ -53,55 +53,49 @@ a.to_front_page:hover {
   text-align: center;
 }
 
-/* control styling if window is small */
-@media screen and (max-width: 750px) {
-  
-  #hidden_div {
-    display:block;
-    width:100%;
-  }
-
-    .disabled {
-      position: fixed;
-      left: 70%;
-      bottom: 0px;
-    }
-
-    #menu_btn {
-      display: none;
-    }
+.float_container {
+  top:0;
+  position: absolute;
+  display: flex;
+  min-height: 400px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .split {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
+    height: 100vh;
+    width: 50vw;
+    overflow: hidden;
   }
   
   /* left side ("studio")*/
   .left {
-    left: 0;
+    float: left;
     background-image: url("img/Etusivu\ studio.001.jpeg");
-    display: block;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(44, 57, 92);
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+    /* transition: background-size 1s ease-in-out; */
   }
   
   /* right side ("live") */
   .right {
+    float: right;
     right: 0;
     background-image: url("img/Etusivu\ live.001.jpeg");
-    display: block;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(143, 76, 76);
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+    /* transition: background-size 1s ease-in-out; */
   }
 
 .centered {
@@ -114,8 +108,36 @@ a.to_front_page:hover {
 
   .right:hover, .left:hover {
     background-blend-mode: lighten;
+    transform: scale(1.2);
+    /* background-size: 120%; */
    }
- 
+
  a:hover p{
     color: white;
  }
+
+ .center_live {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  text-align: center;
+}
+
+.center_studio {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  text-align: center;
+}
+
+.quote {
+  position: fixed;
+  width: 80%;
+  bottom: 10px;
+  right: 10px;
+  left: 65vw;
+}

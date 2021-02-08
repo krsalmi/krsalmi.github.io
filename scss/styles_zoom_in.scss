@@ -1,0 +1,68 @@
+.image {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(167, 158, 158);
+    background-image: url("img/closeup.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .zoom-in,
+  .zoom-out {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: inherit;
+      background-size: cover;
+      transform-origin: center;
+      transition: transform .4s ease-in-out;
+    }
+  }
+  
+  .zoom-in {
+    &:focus,
+    &:hover {
+      &::after {
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  .zoom-out {
+    &::after {
+      transform: scale(1.05);
+    }
+    
+    &:focus,
+    &:hover {
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+  
+  
+  /* Nothing interesting  */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 100vh;
+    
+    &:nth-child(2n) {
+      background-image: url("img/Etusivu\ live.001.jpeg");
+    }
+  }
