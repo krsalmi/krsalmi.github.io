@@ -120,12 +120,28 @@ it will send to 'displaySlowlyOnHover' as the special 'else' case.
     displayPics(index += n);
   }
 
+
+  /* This will only happen in Safari, the other browsers work fine with
+  css only.
+  */
+  function fadeInImage(element) {
+    var op = 0.5;  // initial opacity
+    var img_timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(img_timer);
+        }
+        element.style.opacity = op;
+        op += 0.1;
+    }, 40);
+}
+
+
  function displayPics(n) {
      var i;
      var slides = document.getElementsByClassName("pics");
      var dots = document.getElementsByClassName("dot");
      var carousel = document.getElementsByClassName("carousel");
-     if (n==undefined){
+     if (n == undefined){
         n = ++index;
      }
      if (n > slides.length) {
@@ -141,6 +157,10 @@ it will send to 'displaySlowlyOnHover' as the special 'else' case.
          dots[i].className = dots[i].className.replace(" active", "");
      }
      slides[index-1].style.display = "block";
+
+     if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+        fadeInImage(slides[index-1]);}
+
      dots[index-1].className += " active";
      timer = setTimeout(displayPics, 3500);
 

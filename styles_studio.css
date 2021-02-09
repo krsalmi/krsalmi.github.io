@@ -532,6 +532,7 @@ body a:hover {
 
 /* Fading animation */
 .fade-pics {
+  transition: opacity 500ms ease 0s !important;
     -webkit-animation-name: fadeImg;
     -webkit-animation-duration: 1s;
     animation-name: fadeImg;
@@ -539,12 +540,12 @@ body a:hover {
   }
   
   @-webkit-keyframes fadeImg {
-    from {opacity: .6}
+    from {opacity: .8}
     to {opacity: 1}
   }
   
   @keyframes fadeImg {
-    from {opacity: .6}
+    from {opacity: .8}
     to {opacity: 1}
   }
 
