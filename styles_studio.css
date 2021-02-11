@@ -11,6 +11,10 @@ h1, a {
   color: white;
 }
 
+h1 {
+  font-size: 35px !important;
+}
+
 .header_p {
   font-family: AnaheimGothic;
   color: black;
@@ -133,7 +137,10 @@ body a:hover {
       padding-top: 0px;
     }
     .float_container {
-      margin-top: 210px !important;
+      top: 210px !important;
+    }
+    #text_koko {
+      width: 100px;
     }
 }
 
@@ -242,8 +249,8 @@ body a:hover {
 }
 
 .float_container {
-  margin-top: 180px;
-
+  top: 180px;
+  position: absolute;
   display: flex;
   min-height: 400px;
   height: 60vh;
@@ -252,19 +259,15 @@ body a:hover {
 }
 
 .split_studio {
-    /* position: absolute;
-/*
-    min-height: 400px;
-    top: 180px;
-
-
-    z-index: 1;
-     */
      min-height: 400px;
      overflow: hidden;
     height: 60vh;
     width: 50vw;
   }
+
+#text_tuotanto #text_koko {
+  width: 234px;
+}
 
   .left_studio {
     float:left;
@@ -292,20 +295,31 @@ body a:hover {
 
   }
 
-  .right_studio:hover, .left_studio:hover {
+  #cont_services_left:hover > .left_studio {
     background-blend-mode: luminosity;
     transform: scale(1.2);
-   }
+  }
 
-.s_b {
-  position: relative;
+  #cont_services_right:hover > .right_studio {
+    background-blend-mode: luminosity;
+    transform: scale(1.2);
+  }
+
+.center_on_left_side {
+  position: absolute;
   top: 50%;
-  left: 50%;
+  left: 25%;
   transform: translate(-50%, -50%);
-  width: 234px;
   text-align: center;
 }
 
+.center_on_right_side {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
   .centered {
     position: absolute;
     top: 50%;
