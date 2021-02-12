@@ -126,18 +126,19 @@ body a:hover {
     }
 
     .sub-title {
-      height: 260px;
+      height: 240px !important;
     }
   
     .split_studio {
-        top: 210px;
-        min-height: 340px;
+        top: 240px !important;
+        min-height: 340px !important;
     }
     .centered {
       padding-top: 0px;
     }
     .float_container {
-      top: 210px !important;
+      top: 240px !important;
+      min-height: 340px !important;
     }
     #text_koko {
       width: 100px;
