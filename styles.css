@@ -12,50 +12,6 @@ h1 {
   font-size: 35px !important;
 }
 
-.wrapper {
-  width: 100%;
-  position: relative;
-  z-index: 9999;
-  height: 10px;
-}
-
-.navbar {
-width: 100%;
-overflow: auto;
-}
-
-.navbar a {
-float: left;
-/* padding: 20px; */
-color: white;
-text-decoration: none;
-font-size: 17px;
-/* width: 20%; Four links of equal widths if the menu was actually shown, but to place the logo:*/
-width: 19.5%;
-text-align: center;
-}
-
-.navbar a:hover {
-background: rgb(0, 0, 0);
-background: rgba(100, 100, 100, 0.25);
-}
-
-a.to_front_page:hover {
-  background: none;
-}
-
-/* the menu items, that are usually hidden */
-#hidden_div {
-  width: 60%;
-  display:none;
-  
-}
-
-#hidden_div a {
-  width: 30%;
-  text-align: center;
-}
-
 .float_container {
   top:0;
   position: absolute;
@@ -72,17 +28,19 @@ a.to_front_page:hover {
     overflow: hidden;
   }
   
+  .left, .right {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+  }
   /* left side ("studio")*/
   .left {
     float: left;
     background-image: url("img/Etusivu\ studio.001.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     background-color: rgb(44, 57, 92);
-    width: 100%;
-    height: 100%;
-    transition: all 1s;
   }
   
   /* right side ("live") */
@@ -90,14 +48,7 @@ a.to_front_page:hover {
     float: right;
     right: 0;
     background-image: url("img/Etusivu\ live.001.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     background-color: rgb(143, 76, 76);
-    width: 100%;
-    height: 100%;
-    transition: all 1s;
-    /* transition: background-size 1s ease-in-out; */
   }
 
 .centered {
@@ -110,17 +61,28 @@ a.to_front_page:hover {
 
   #container_studio_side:hover > .right {
     background-blend-mode: lighten;
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   #container_live_side:hover > .left {
     background-blend-mode: lighten;
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
  a:hover p{
     color: white;
  }
+
+.logo_container {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  text-align: center;
+}
+
+a.to_front_page:hover {
+  background: none;
+}
 
  .center_on_left_side {
   position: absolute;

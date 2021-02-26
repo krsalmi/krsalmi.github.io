@@ -59,3 +59,15 @@
   width: 50%;
 }
 /*# sourceMappingURL=styles_links.css.map */
+
+.permanent_box {
+  width: 100%;
+  justify-content: center;
+  display: block;
+}
+
+.perm_border {
+  box-sizing: border-box;
+  border-bottom: 5px solid #8a0000; 
+  border-color: #8a0000;
+}

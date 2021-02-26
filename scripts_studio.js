@@ -1,3 +1,4 @@
+var scroll_times = 0;
 
 var scroll_index = 0;
 
@@ -85,23 +86,33 @@ function hideElement(stay_visible) {
  is displayed at the top of the window. If so, it searches for the second child of
  that 'selection' (which is the .under_navbar div) and changes its background color,
  because otherwise the see-through menu bar wouldn't be properly visible. If the
- element is not at the top of the screen, its child div will be white.
+ element is not at the top of the screen, its child div will be white. It also
+ controls the events in which we arrive directly to the section via the navbar
+ links. In this case there will be no fade-in.
  */
 
-function changeColorUnderNavbar() {
+function changeColorUnderNavbar(clicked) {
     var section_list = ["sect_services", "sect_team", "sect_contact"];
     section_list.forEach(checkPos);
     function checkPos(item){
+        scroll_times++;
+        if (clicked == 1) {
+            scroll_times = 0;
+        }
         var sect_item = document.getElementById(item);
         var under_nav = sect_item.childNodes;
         if (sect_item.getBoundingClientRect().top == 0) {
             under_nav[1].style.backgroundColor = "#A30000";
-            under_nav[1].classList.add("fade-in-div");
+            if (scroll_times > 3) {
+                under_nav[1].classList.add("fade-in-div");
+                scroll_times = 0;
+            }
         } else {
             under_nav[1].style.backgroundColor = 'white';
             under_nav[1].classList.remove("fade-in-div");
         }
     }
+    return (scroll_times);
 }
 
 /* Inspired by W3.School
