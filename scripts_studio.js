@@ -92,7 +92,8 @@ function hideElement(stay_visible) {
  */
 
 function changeColorUnderNavbar(clicked) {
-    var section_list = ["sect_services", "sect_team", "sect_contact"];
+    var section_list = ["sect_services", "sect_team", "sect_contact", "sect_media", "sect_shop", "sect_booking"];
+    var live_side = ["sect_media", "sect_shop", "sect_booking"];
     section_list.forEach(checkPos);
     function checkPos(item){
         scroll_times++;
@@ -100,16 +101,23 @@ function changeColorUnderNavbar(clicked) {
             scroll_times = 0;
         }
         var sect_item = document.getElementById(item);
-        var under_nav = sect_item.childNodes;
-        if (sect_item.getBoundingClientRect().top == 0) {
-            under_nav[1].style.backgroundColor = "#A30000";
-            if (scroll_times > 3) {
-                under_nav[1].classList.add("fade-in-div");
-                scroll_times = 0;
+        if (sect_item) {
+            var under_nav = sect_item.childNodes;
+            if (sect_item.getBoundingClientRect().top == 0) {
+                if (live_side.includes(item)) {
+                    under_nav[1].style.backgroundColor = "#003ca3"
+                }
+                else {
+                    under_nav[1].style.backgroundColor = "#a30000";
+                }
+                if (scroll_times > 30) {
+                    under_nav[1].classList.add("fade-in-div");
+                    scroll_times = 0;
+                }
+            } else {
+                under_nav[1].style.backgroundColor = 'white';
+                under_nav[1].classList.remove("fade-in-div");
             }
-        } else {
-            under_nav[1].style.backgroundColor = 'white';
-            under_nav[1].classList.remove("fade-in-div");
         }
     }
     return (scroll_times);
@@ -151,7 +159,7 @@ it will send to 'displaySlowlyOnHover' as the special 'else' case.
      var i;
      var slides = document.getElementsByClassName("pics");
      var dots = document.getElementsByClassName("dot");
-     var carousel = document.getElementsByClassName("carousel");
+     var carousel = document.getElementsByClassName("carousel_pics");
      if (n == undefined){
         n = ++index;
      }
@@ -175,7 +183,7 @@ it will send to 'displaySlowlyOnHover' as the special 'else' case.
      dots[index-1].className += " active";
      timer = setTimeout(displayPics, 3500);
 
-     var carousel = document.getElementById("carousel");
+     var carousel = document.getElementById("carousel_pics");
      var arrows = document.getElementById("carousel-arrows")
      carousel.addEventListener("mouseover", displaySlowlyOnHover);
  }
@@ -185,9 +193,9 @@ it will send to 'displaySlowlyOnHover' as the special 'else' case.
     var navigation = document.getElementById("navbar");
     menu_i++;
     if (menu_i % 2 != 0) {
-        navigation.style.height="254px";
+        navigation.style.height="294px";
         document.getElementById("navbarSupportedContent").style.display="block";
-        document.getElementById("collapse_menu").style.backgroundColor="rgba(19, 18, 18, 0.4)";
+        document.getElementById("collapse_menu").style.backgroundColor="rgba(19, 18, 18, 0.9)";
     } else {
         navigation.style.height="65px";
         document.getElementById("navbarSupportedContent").style.display="none";

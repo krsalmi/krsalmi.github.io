@@ -6,7 +6,7 @@
 section {
   scroll-behavior: smooth;
 }
-h1, a {
+h1, h4, a {
   font-family: AnaheimGothic;
   color: white;
 }
@@ -61,6 +61,8 @@ body a:hover {
   display: none;
   position: absolute;
   right: 15px;
+  padding: 5px;
+
 }
 
 #navbarSupportedContent {
@@ -69,7 +71,7 @@ body a:hover {
   margin: auto;
   right:0;
   float: left;
-  padding:20px;
+  padding: 20px;
 }
 #navbarSupportedContent a {
   color: white;
@@ -149,7 +151,7 @@ body a:hover {
     }
 }
 
-.carousel {
+.carousel_pics {
     width: 100%;
     height: 100vh;
     overflow: hidden;

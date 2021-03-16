@@ -46,6 +46,35 @@
   right: 0;
 }
 
+.hover_blue {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.hover_blue:before, .hover_blue:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 0px;
+  height: 5px;
+  margin: 5px 0 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition-duration: 0.55s;
+          transition-duration: 0.55s;
+  opacity: 0;
+  background-color: #00338a;
+}
+
+.hover_blue.hover-3:before {
+  left: 50%;
+}
+
+.hover_blue.hover-3:after {
+  right: 50%;
+}
+
 .underline_box:hover {
   cursor: pointer;
 }
@@ -58,16 +87,35 @@
 .underline_box:hover .hover.hover-3:before, .underline_box:hover .hover.hover-3:after, .underline_box:hover .hover.hover-4:before, .underline_box:hover .hover.hover-4:after {
   width: 50%;
 }
-/*# sourceMappingURL=styles_links.css.map */
+
+.underline_box:hover .hover_blue:before, .underline_box:hover .hover_blue:after {
+  width: 100%;
+  opacity: 1;
+}
+
+.underline_box:hover .hover_blue.hover-3:before, .underline_box:hover .hover_blue.hover-3:after {
+  width: 50%;
+}
 
 .permanent_box {
   width: 100%;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   display: block;
 }
 
 .perm_border {
-  box-sizing: border-box;
-  border-bottom: 5px solid #8a0000; 
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 5px solid #8a0000;
   border-color: #8a0000;
 }
+
+.perm_border_blue {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 5px solid #8a0000;
+  border-color: #003ca3;
+}
+/*# sourceMappingURL=styles_links.css.map */

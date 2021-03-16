@@ -52,6 +52,33 @@
      }
    }
  }
+
+ .hover_blue {
+  transition: $animate;
+  position: relative;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    width: 0px;
+    height: 5px;
+    margin: 5px 0 0;
+    transition: $animate;
+    transition-duration: 0.55s;
+    opacity: 0;
+    background-color: darken(rgb(0,60,163),5%);
+  }
+  &.hover-3 {
+    &:before {
+      left: 50%;
+    }
+    &:after {
+      right: 50%;
+    }
+  }
+}
+
  .underline_box:hover {
    cursor: pointer;
    .hover {
@@ -68,6 +95,19 @@
        }
      }
    }
+   .hover_blue {
+    &:before,
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+    &.hover-3 {
+      &:before,
+      &:after {
+        width: 50%;
+      }
+    }
+  }
  }
  
  .permanent_box {
@@ -80,4 +120,10 @@
   box-sizing: border-box;
   border-bottom: 5px solid #8a0000; 
   border-color: #8a0000;
+}
+
+.perm_border_blue {
+  box-sizing: border-box;
+  border-bottom: 5px solid #8a0000; 
+  border-color: #003ca3;
 }
