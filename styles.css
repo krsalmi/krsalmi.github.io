@@ -3,7 +3,7 @@
   src: url(AnaheimGothic.otf);
 }
 
-html p, h1 {
+html h1 {
   font-family: AnaheimGothic;
   color: white;
 }

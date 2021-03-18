@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles_studio.css">
     <link rel="stylesheet" href="styles_live.css">
+	<link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="scss/styles_links.css">
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -75,80 +76,86 @@
         <section id="sect_media">
             <div class="under_navbar"></div>
             <div class="media" id="media">
-                <div class="centered">
-                    <div class="underline_box">
-                        <h1><span class="header_p hover-3 hover_blue">Media</span></h1>
-                    </div>
-                    <p class="lead">Some videos from our Youtube channel</p>
-                </div>
+				<div class="centered">
+					<div class="underline_box">
+						<h1><span class="header_p hover-3 hover_blue">Media</span></h1>
+					</div>
+					<p class="lead" style="color: ;">Some videos from our Youtube channel and our Spotify album</p>
+				</div>
+
             </div>
             <!-- This carousel template is from https://azmind.com/bootstrap-carousel-with-videos-images-captions/-->
-            <div class="container">
-                <!-- Carousel row -->
-                <div class="row">
-                    <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                        <!-- Carousel -->
-                        <div id="carousel-example" class="carousel slide">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example" data-slide-to="1"></li>
-                                <li data-target="#carousel-example" data-slide-to="2"></li>
-                                <li data-target="#carousel-example" data-slide-to="3"></li>
-                                <li data-target="#carousel-example" data-slide-to="4"></li>
-                                <li data-target="#carousel-example" data-slide-to="5"></li>
-                                <li data-target="#carousel-example" data-slide-to="6"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/rFv_CDJ-XBo?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/PSjTN8WSGNk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/6vYMKC1i5PI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/NgfA0sllS30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/bU4XaC1cav4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/HKlPts9p7hY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="prev_arrow_video" href="#carousel-example" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="next_arrow_video" href="#carousel-example" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>                    
-                        </div>
-                        <!-- End carousel -->
-                    </div>
-                </div>
-                <!-- End carousel row -->
-            </div>
+            <div class="media_content">
+				<div class="container">
+					<!-- Carousel row -->
+					<div class="row">
+						<div class="col col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+							<!-- Carousel -->
+							<div id="carousel-example" class="carousel slide">
+								<ol class="carousel-indicators">
+									<li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+									<li data-target="#carousel-example" data-slide-to="1"></li>
+									<li data-target="#carousel-example" data-slide-to="2"></li>
+									<li data-target="#carousel-example" data-slide-to="3"></li>
+									<li data-target="#carousel-example" data-slide-to="4"></li>
+									<li data-target="#carousel-example" data-slide-to="5"></li>
+									<li data-target="#carousel-example" data-slide-to="6"></li>
+								</ol>
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<div class="embed-responsive embed-responsive-16by9">
+											<iframe width="560" height="315" src="https://www.youtube.com/embed/rFv_CDJ-XBo?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="embed-responsive embed-responsive-16by9">
+											<iframe width="560" height="315" src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="embed-responsive embed-responsive-16by9">
+											<iframe width="560" height="315" src="https://www.youtube.com/embed/PSjTN8WSGNk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="embed-responsive embed-responsive-16by9">
+											<iframe width="560" height="315" src="https://www.youtube.com/embed/6vYMKC1i5PI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="embed-responsive embed-responsive-16by9">
+											<iframe width="560" height="315" src="https://www.youtube.com/embed/NgfA0sllS30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="embed-responsive embed-responsive-16by9">
+											<iframe width="560" height="315" src="https://www.youtube.com/embed/bU4XaC1cav4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="embed-responsive embed-responsive-16by9">
+											<iframe width="560" height="315" src="https://www.youtube.com/embed/HKlPts9p7hY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+								</div>
+								<a class="prev_arrow_video" href="#carousel-example" role="button" data-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="next_arrow_video" href="#carousel-example" role="button" data-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>                    
+							</div>
+							<!-- End carousel -->
+						</div>
+					</div>
+					<!-- End carousel row -->
+				</div>
+				<div class="spotify_div">
+					<iframe src="https://open.spotify.com/embed/album/4EcDfXLoDwzHD9Ox6nkKOr" width="540"
+						height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+			</div>
         </section>
         <section id="sect_shop">
             <div class="under_navbar"></div>
