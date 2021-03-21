@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="styles_studio.css">
     <link rel="stylesheet" href="styles_live.css">
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="social_media.css">
     <link rel="stylesheet" href="scss/styles_links.css">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="scripts_studio.js"></script>
@@ -23,11 +28,11 @@
             <div class="to_be_hidden">
                 <a class="hidden underline_box" href="#sect_tour">
                     <span class="hover_blue hover-3">TOUR DATES</span></a>
-                <a class="hidden underline_box" href="#">
+                <a class="hidden underline_box" href="#sect_media">
                     <span class="hover_blue hover-3">MEDIA</span></a>
-                <a class="hidden underline_box" href="#">
+                <a class="hidden underline_box" href="#sect_shop">
                     <span class="hover_blue hover-3">SHOP</span></a>
-                <a class="hidden underline_box" href="#">
+                <a class="hidden underline_box" href="#sect_booking">
                     <span class="hover_blue hover-3">CONTACT & BOOKING</span></a>
                 <a class="hidden underline_box" href="#">
                     <span class="hover_blue hover-3">STUDIO</span></a>
@@ -41,13 +46,13 @@
                         <a class="nav-link" href="#sect_tour">TOUR DATES</a>
                       </li>
                       <li class="nav-item" onclick="changeColorUnderNavbar(1)">
-                        <a class="nav-link" href="#">MEDIA</a>
+                        <a class="nav-link" href="#sect_media">MEDIA</a>
                       </li>
                       <li class="nav-item" onclick="changeColorUnderNavbar(1)">
-                        <a class="nav-link" href="#">SHOP</a>
+                        <a class="nav-link" href="#sect_shop">SHOP</a>
                       </li>
                       <li class="nav-item" onclick="changeColorUnderNavbar(1)">
-                        <a class="nav-link" href="#">CONTACT & BOOKING</a>
+                        <a class="nav-link" href="#sect_booking">CONTACT & BOOKING</a>
                       </li>
                       <li class="nav-item" onclick="changeColorUnderNavbar(1)">
                         <a class="nav-link" href="studio.html">STUDIO</a>
@@ -80,7 +85,7 @@
 					<div class="underline_box">
 						<h1><span class="header_p hover-3 hover_blue">Media</span></h1>
 					</div>
-					<p class="lead" style="color: ;">Some videos from our Youtube channel and our Spotify album</p>
+					<p class="lead">Some videos from our Youtube channel and our Spotify album</p>
 				</div>
 
             </div>
@@ -159,9 +164,48 @@
         </section>
         <section id="sect_shop">
             <div class="under_navbar"></div>
+			<div class="services">
+				<div class="sub-title">
+					<div class="centered">
+						<div class="underline_box">
+							<h1><span class="header_p hover-3 hover_blue">Shop</span></h1>
+						</div>
+						<p class="lead">Our merch is sold on teespring.com</p>
+					</div>
+				</div>
+				<div class="flex_merch">
+					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/t_shirt_adidas.jpg"></a></div>
+					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/hoodie_black.jpg"></a></div>
+					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/t_shirt_blue.jpg"></a></div>
+					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/hoodie_grey copy.png"></a></div>
+					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/t_shirt_heart.jpg"></a></div>
+					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/hoodie_pink.jpg"></a></div>
+					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/t_shirt_vans.jpg"></a></div>
+					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/hoodie_purple.jpg"></a></div>
+				</div>
+			</div>
         </section>
         <section id="sect_booking">
             <div class="under_navbar"></div>
+            <div id="contact" class="contact">
+                <div class="sub-title-contact">
+                    <div class="permanent_box">
+                        <h1 class="header_p"><span class="perm_border_blue">Contact&Bookings</span></h1>
+                    </div>
+                    <div class="contact_info">
+                        <p class="lead">Here are ways to contact us</p>
+                        <p class="lead">email: blaablaa@gmail.com</br>
+                            phone: +35840112233</p>
+                    </div>
+                </div>
+				<div class="live_social_media_icons">
+					<div class="booking_footer">
+						<div class="social_bookings booking_left"><a href="#" class="fa fa-facebook"></a></div>
+						<div class="social_bookings booking_left"><a href="#" class="fa fa-youtube"></a></div>
+						<div class="social_bookings booking_left"><a href="#" class="fa fa-instagram"></a></div>
+					</div>
+				</div>
+            </div>
         </section>
     </div>
     <script>

@@ -1,0 +1,25 @@
+.live_social_media_icons {
+	position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+	bottom: 0;
+}
+
+.social_bookings {
+	width: 66px;
+	position: relative;
+}
+
+.booking_footer {
+	width: 300px;
+	height: 100px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;  
+  bottom: 0;
+}
+
+.booking_left {
+	float: left;
+}

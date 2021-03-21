@@ -106,3 +106,28 @@ h1 {
 	margin: 30px;
 	text-align: center;
 }
+
+.flex_merch {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: auto;
+	top: 180px;
+	overflow-x: auto;
+}
+
+.shop_item {
+	flex: 0 0 auto;
+}
+
+.shop_item img:hover {
+	opacity: 0.5;
+}
+
+@media screen and (max-width: 600px) {
+	.flex_merch::-webkit-scrollbar {    display: none;}
+	/* .flex_merch::-webkit-overflow-scrolling: touch; */
+}
+
+
+
