@@ -11,17 +11,14 @@
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-	<script src="scripts_studio.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	
+    <script src="scripts_studio.js"></script>
     <title>Live</title>
 </head>
 <body>
@@ -29,15 +26,15 @@
         <div id="navbar" class="navbar shadow mb-5 rounded">
             <a class="to_front_page" href="index.html"><img src="img/GMC STUDIO.png" style="width: 160px"></a>
             <div class="to_be_hidden">
-                <a id="link_tour1" class="hidden underline_box" href="#sect_tour">
+                <a class="hidden underline_box" href="#sect_tour">
                     <span class="hover_blue hover-3">TOUR DATES</span></a>
-                <a id="link_media1" class="hidden underline_box" href="#sect_media">
+                <a class="hidden underline_box" href="#sect_media">
                     <span class="hover_blue hover-3">MEDIA</span></a>
-                <a id="link_shop1" class="hidden underline_box" href="#sect_shop">
+                <a class="hidden underline_box" href="#sect_shop">
                     <span class="hover_blue hover-3">SHOP</span></a>
-                <a id="link_booking1" class="hidden underline_box" href="#sect_booking">
+                <a class="hidden underline_box" href="#sect_booking">
                     <span class="hover_blue hover-3">CONTACT & BOOKING</span></a>
-                <a class="hidden underline_box" href="studio.html">
+                <a class="hidden underline_box" href="#">
                     <span class="hover_blue hover-3">STUDIO</span></a>
             </div>
             <div id="collapse_menu" class="collapse_menu">
@@ -212,26 +209,17 @@
         </section>
     </div>
     <script>
-        // $('.carousel').carousel({
-        //     interval: false,
-        // });
-		// $(function() {
-    	// 	$('.carousel').each(function(){
-        // 		$(this).carousel({
-        //     	interval: false
-        // 		});
-    	// 	});
-		// });
+        $('.carousel').carousel({
+            interval: false,
+        });
         
         /*
         from : https://stackoverflow.com/questions/21349984/how-to-make-bootstrap-carousel-slider-use-mobile-left-right-swipe
-
         $('.carousel').on('touchstart', function(event){
             const xClick = event.originalEvent.touches[0].pageX;
             $(this).one('touchmove', function(event){
                 const xMove = event.originalEvent.touches[0].pageX;
                 const sensitivityInPx = 5;
-
                 if( Math.floor(xClick - xMove) > sensitivityInPx ){
                     $(this).carousel('next');
                 }
@@ -246,60 +234,6 @@
     
         document.querySelector('#scroll-container').addEventListener("scroll", 
             function() {changeColorUnderNavbar(0)});
-
-
-		/* A function to make scrolling to different sections on the page smooth. But in a
-		way that preserves the snap scroll functionality. To do this, the 'scroll-container' class
-		which has the snap attribute, must be removed. When this happens, by default the page scrolls
-		to the top, so the current position must be saved in 'pos'. After the animated scroll, the
-		'scroll-container' class is added back, which again causes the page to scroll to the top, so the
-		new position, which is saved in variable 'y' is set as the position after the class add.
-		When the page is not fully loaded, this function won't work properly, so
-		window.onload event + wait time is added.
-		*/
-		function slowScrollToggleClass(pos, href) {
-			var target;
-
-			target = $(href).offset().top + pos;
-			$("#scroll-container").removeClass("scroll-container");
-			$("#scroll-container").scrollTop(pos); //back to original position, because when scroll-container class is removed, the window goes to top
-
-			// console.log("Target position"); //debug
-			// console.log("target"); //debug
-			$("#scroll-container").animate({ scrollTop: target }, 800);
-			
-			setTimeout(function() {
-				$("#scroll-container").addClass("scroll-container");
-				$("#scroll-container").scrollTop(target);
-			}, 800);	 
-		}
-
-		$(".navbar a").on("click", function (e) {
-			
-			console.log("triggered");
-			
-			var href = $(this).attr("href");
-			var pos = $("#scroll-container").scrollTop();
-			console.log(pos);
-			
-			if (href != "studio.html" && href != "live.html") {
-				e.preventDefault();
-				
-				if (document.readyState === 'complete') {
-					console.log("if is happening");
-        			slowScrollToggleClass(pos, href);
-    			} else {
-				
-					window.onload = (event) => {
-						console.log('page is fully loaded');
-						setTimeout(function() { 
-							console.log("else is happening");
-							slowScrollToggleClass(pos, href); 
-						}, 1000);
-					};
-     			}
-			}	
-		});
     </script>
 </body>
 </html>

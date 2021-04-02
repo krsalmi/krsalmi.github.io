@@ -92,6 +92,7 @@ function hideElement(stay_visible) {
  */
 
 function changeColorUnderNavbar(clicked) {
+	console.log("gonna change color under navbar");
     var section_list = ["sect_services", "sect_team", "sect_contact", "sect_media", "sect_shop", "sect_booking"];
     var live_side = ["sect_media", "sect_shop", "sect_booking"];
     section_list.forEach(checkPos);

@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: AnaheimGothic;
   src: url(AnaheimGothic.otf);
@@ -25,7 +26,7 @@ body a:hover {
     text-decoration: none;
 }
 .navbar {
-    width: 100%;
+    width: 100vw;
     background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
     background: rgba(204, 204, 204, 0.4);
     height: 65px;
@@ -571,11 +572,14 @@ body a:hover {
     to {opacity: 1}
   }
 
-   
+  #scroll-container {
+	height: 100vh;
+	min-height: 600px;
+	overflow: scroll;
+  }
+
  .scroll-container {
-  overflow: scroll;
-  height: 100vh;
-  min-height: 600px;
+  /* overflow: scroll; */
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
