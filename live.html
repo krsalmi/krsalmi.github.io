@@ -247,14 +247,13 @@
         document.querySelector('#scroll-container').addEventListener("scroll", 
             function() {changeColorUnderNavbar(0)});
 
-
 		/* A function to make scrolling to different sections on the page smooth. But in a
 		way that preserves the snap scroll functionality. To do this, the 'scroll-container' class
 		which has the snap attribute, must be removed. When this happens, by default the page scrolls
 		to the top, so the current position must be saved in 'pos'. After the animated scroll, the
 		'scroll-container' class is added back, which again causes the page to scroll to the top, so the
 		new position, which is saved in variable 'y' is set as the position after the class add.
-		When the page is not fully loaded, this function won't work properly, so
+		When the page is not fully loaded in Safari, this function won't work properly, so
 		window.onload event + wait time is added.
 		*/
 		function slowScrollToggleClass(pos, href) {
@@ -266,20 +265,28 @@
 
 			// console.log("Target position"); //debug
 			// console.log("target"); //debug
-			$("#scroll-container").animate({ scrollTop: target }, 800);
+			$("#scroll-container").animate({ scrollTop: target }, 1000);
 			
 			setTimeout(function() {
 				$("#scroll-container").addClass("scroll-container");
 				$("#scroll-container").scrollTop(target);
-			}, 800);	 
+			}, 1000);	 
 		}
 
 		$(".navbar a").on("click", function (e) {
-			
-			console.log("triggered");
-			
+			// Parts concerning determining browser are from 
+			//https://stackoverflow.com/questions/4565112/javascript-how-to-find-out-if-the-user-browser-is-chrome/13348618#13348618
+			var isChromium = window.chrome;
+			var winNav = window.navigator;
+			var vendorName = winNav.vendor;
+			var isOpera = typeof window.opr !== "undefined";
+			var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
+			var isIOSChrome = winNav.userAgent.match("CriOS");
+						
 			var href = $(this).attr("href");
 			var pos = $("#scroll-container").scrollTop();
+			
+			console.log("triggered");
 			console.log(pos);
 			
 			if (href != "studio.html" && href != "live.html") {
@@ -289,14 +296,23 @@
 					console.log("if is happening");
         			slowScrollToggleClass(pos, href);
     			} else {
-				
-					window.onload = (event) => {
-						console.log('page is fully loaded');
-						setTimeout(function() { 
-							console.log("else is happening");
-							slowScrollToggleClass(pos, href); 
-						}, 1000);
-					};
+
+					if (isIOSChrome) {
+						console.log("else is happening on chrome ios");// is Google Chrome on IOS
+						slowScrollToggleClass(pos, href); 
+					} else if (isChromium !== null && typeof isChromium !== "undefined" &&
+					vendorName === "Google Inc." && isOpera === false && isIEedge === false) {
+						console.log("else case on chrome");
+						slowScrollToggleClass(pos, href); 
+					} else { // not Google Chrome
+						window.onload = (event) => {
+							console.log('page is fully loaded');
+							setTimeout(function() { 
+								console.log("else is happening with timeout");
+								slowScrollToggleClass(pos, href); 
+							}, 500);
+						};
+					}
      			}
 			}	
 		});
