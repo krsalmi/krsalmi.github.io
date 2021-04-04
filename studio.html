@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="styles_studio.css">
 	<link rel="stylesheet" href="social_media.css">
     <link rel="stylesheet" href="scss/styles_links.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="scripts_studio.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="scripts_scrolling.js"></script>
+
     <title>Studio</title>
 </head>
 <body>
@@ -139,11 +141,6 @@
 						<div class="social_bookings booking_left"><a href="#" class="fa fa-instagram"></a></div>
 					</div>
 				</div>
-               <!--- <div id="social_media">
-                    <div class="media"><a href="#" class="fa fa-facebook"></a></div>
-                    <div class="media"><a href="#" class="fa fa-youtube"></a></div>
-                    <div class="media"><a href="#" class="fa fa-instagram"></a></div>
-                </div> -->
             </div>
         </section>
     </div>
@@ -152,6 +149,12 @@
         var timer = null;
         displayPics(index);
         document.querySelector('#scroll-container').addEventListener("scroll", function() {changeColorUnderNavbar(0)});
-    </script>
+    
+		$(".navbar a").on("click", function (e) {
+			var href = $(this).attr("href");
+			var pos = $("#scroll-container").scrollTop();
+			handleScroll(e, href, pos);
+		});
+	</script>
 </body>
 </html>

@@ -30,8 +30,8 @@
 			var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
 			var isIOSChrome = winNav.userAgent.match("CriOS");
 			
-			// console.log("triggered"); //debug
-			// console.log(pos);
+			console.log("triggered"); //debug
+			console.log(pos);
 			
 			if (href != "studio.html" && href != "live.html" && (isIOSChrome ||
 				(isChromium !== null && typeof isChromium !== "undefined" &&

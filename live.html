@@ -100,7 +100,7 @@
 					<div class="row">
 						<div class="col col-md-10 offset-md-1 col-lg-6 offset-lg-3">
 							<!-- Carousel -->
-							<div id="carousel-example" class="carousel slide">
+							<div id="carousel-example" class="carousel slide" data-interval="false">
 								<ol class="carousel-indicators">
 									<li data-target="#carousel-example" data-slide-to="0" class="active"></li>
 									<li data-target="#carousel-example" data-slide-to="1"></li>
@@ -147,14 +147,18 @@
 										</div>
 									</div>
 								</div>
-								<a class="prev_arrow_video" href="#carousel-example" role="button" data-slide="prev">
-									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-									<span class="sr-only">Previous</span>
-								</a>
-								<a class="next_arrow_video" href="#carousel-example" role="button" data-slide="next">
-									<span class="carousel-control-next-icon" aria-hidden="true"></span>
-									<span class="sr-only">Next</span>
-								</a>                    
+								<div id="video_carousel_arr_prev">
+									<a class="prev_arrow_video" href="#carousel-example" role="button" data-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</a>
+								</div>
+								<div id="video_carousel_arr_next">
+									<a class="next_arrow_video" href="#carousel-example" role="button" data-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>  
+								</div>                  
 							</div>
 							<!-- End carousel -->
 						</div>
@@ -163,7 +167,8 @@
 				</div>
 				<div class="spotify_div">
 					<iframe src="https://open.spotify.com/embed/album/4EcDfXLoDwzHD9Ox6nkKOr" width="540"
-						height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+						height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+				</div>
 			</div>
         </section>
         <section id="sect_shop">
@@ -224,9 +229,9 @@
     	// 	});
 		// });
         
-        /*
-        from : https://stackoverflow.com/questions/21349984/how-to-make-bootstrap-carousel-slider-use-mobile-left-right-swipe
-
+        
+        //from : https://stackoverflow.com/questions/21349984/how-to-make-bootstrap-carousel-slider-use-mobile-left-right-swipe
+	/*
         $('.carousel').on('touchstart', function(event){
             const xClick = event.originalEvent.touches[0].pageX;
             $(this).one('touchmove', function(event){
@@ -255,6 +260,36 @@
 			handleScroll(e, href, pos);
 		});
 
+
+//Making spotify embedding responsive from https://stackoverflow.com/questions/13039311/making-spotify-embeds-responsive, solution
+//by Suplanus. I've made some changes to the solution
+		$(document).ready(function() {
+    /* Make Spotify fit initial layout */
+		respondify();
+	});
+
+
+	$(window).resize(function() {
+		/* Make Spotify fit layout on resize */
+		respondify();
+	});
+
+
+	function respondify() {
+		$('body').find('iframe[src*="spotify.com/"]').each(function() {
+			var w = $(this).parent(1).width();
+			if (w > 540) {
+				w = 540;
+			}
+			$(this).css('width', w + 'px');
+
+			var h = 80;
+			$(this).css('height', h + 'px');
+
+			$(this).attr('src',$(this).attr('src'));
+		});
+
+	}
     </script>
 </body>
 </html>
