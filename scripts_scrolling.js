@@ -1,173 +1,43 @@
-// smooth scrolling script from https://codepen.io/stefan12/pen/LvRqWN
-//I added code so that scrolling would be smooth even with scroll-snap
-//sections.
-
-window.addEventListener('DOMContentLoaded', function () {
-	(function() {
-		let d = document;
-		let scroll_div = d.getElementById("scroll-container");
-		console.log(scroll_div);
+/* A function to make scrolling to different sections on the page smooth. But in a
+		way that preserves the snap scroll functionality. To do this, the 'scroll-container' class
+		which has the snap attribute, must be removed. When this happens, by default the page scrolls
+		to the top, so the current position must be saved in 'pos'. 
+		Function will only happen, if browser is google chrome.
+		*/
 		
-		function init() {
-			//Links on 'live' page 
-			let link_tour1  = d.getElementById('link_tour1');
-			let link_media1  = d.getElementById('link_media1');
-			let link_shop1  = d.getElementById('link_shop1');
-			let link_booking1  = d.getElementById('link_booking1');
-			//Anchors
-			let sect_tour      = d.getElementById('sect_tour');
-			let sect_media      = d.getElementById('sect_media');
-			let sect_shop      = d.getElementById('sect_shop');
-			let sect_booking      = d.getElementById('sect_booking');
+		function slowScrollToggleClass(pos, href) {
+			var target;
 
-			//links on 'studio' page
-			let link_ref1 = d.getElementById('link_ref1');
-			let link_services1 = d.getElementById('link_services1');
-			let link_team1 = d.getElementById('link_team1');
-			let link_contact1 = d.getElementById('link_contact1');
-			//Anchors
-			let sect_carousel = d.getElementById('sect_carousel');
-			let sect_services = d.getElementById('sect_services');
-			let sect_team = d.getElementById('sect_team');
-			let sect_contact = d.getElementById('sect_contact');
-
-			if (link_tour1)
-			{
-				console.log("link_tour1 exists");
-				link_tour1.addEventListener('click', (e) => { scrollTo(sect_tour, e) }, false);
-			}
-			if (link_media1)
-				link_media1.addEventListener('click', (e) => { scrollTo(sect_media, e) }, false);
-			if (link_shop1)
-				link_shop1.addEventListener('click', (e) => { scrollTo(sect_shop, e) }, false);
-			if (link_booking1)
-				link_booking1.addEventListener('click', (e) => { scrollTo(sect_booking.offsetTop, e) }, false);
+			target = $(href).offset().top + pos;
+			$("#scroll-container").removeClass("scroll-container");
+			$("#scroll-container").scrollTop(pos); //back to original position, because when scroll-container class is removed, the window goes to top
 			
-			if (link_ref1)
-			{
-				console.log("link_ref1 exists");
-				link_ref1.addEventListener('click', (e) => { scrollTo(sect_carousel, e) }, false);
-			}
-			if (link_services1)
-				link_services1.addEventListener('click', (e) => { scrollTo(sect_services, e) }, false);
-			if (link_team1)
-				link_team1.addEventListener('click', (e) => { scrollTo(sect_team, e) }, false);
-			if (link_contact1)
-				link_contact1.addEventListener('click', (e) => { scrollTo(sect_contact.offsetTop, e) }, false);
-			else
-				console.log("link_contact1 doesnt exists!");
-		}
-		
-		function scrollTopValue(domElement) { //DEBUG
-			return 'scrollTopValue:', domElement.scrollTop;
-		}
-		function offsetTopValue(domElement) { //DEBUG
-			return 'offsetTopValue:', domElement.offsetTop;
+			$("#scroll-container").animate({ scrollTop: target }, 800);
+			
+			setTimeout(function() {
+				console.log("adding class back");
+				$("#scroll-container").addClass("scroll-container");	
+			}, 800);
 		}
 
-
-		//cf. https://gist.github.com/james2doyle/5694700
-		// requestAnimationFrame for Smart Animating https://goo.gl/sx5sts
-		var requestAnimFrame = (function() {
-			return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) {
-				window.setTimeout(callback, 1000 / 60);
-			};
-		})();
-
-		function scrollTo(to, callback, duration = 1500) {
+		function handleScroll(e, href, pos) {
+			// Parts concerning determining the browser are from 
+			//https://stackoverflow.com/questions/4565112/javascript-how-to-find-out-if-the-user-browser-is-chrome/13348618#13348618
+			var isChromium = window.chrome;
+			var winNav = window.navigator;
+			var vendorName = winNav.vendor;
+			var isOpera = typeof window.opr !== "undefined";
+			var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
+			var isIOSChrome = winNav.userAgent.match("CriOS");
 			
-			scroll_div.classList.remove("scroll-container");
+			// console.log("triggered"); //debug
+			// console.log(pos);
 			
-			if (isDomElement(to)) {
-
-				to = to.offsetTop;
-			}
-			
-			function move(amount) {
-			
-				document.documentElement.scrollTop = amount;
-				document.body.parentNode.scrollTop = amount;
-				document.body.scrollTop = amount;
-			}
-
-			function position() {
-				return document.documentElement.offsetTop || document.body.parentNode.offsetTop || document.body.offsetTop;
-			}
-			
-			var start = position(),
-				change = to - start,
-				currentTime = 0,
-				increment = 20;
-			console.log('start:', start); //DEBUG
-			console.log('to:', to); //DEBUG
-			console.log('change:', change); //DEBUG
-			
-			var animateScroll = function() {
-				// increment the time
-				currentTime += increment;
-				// find the value with the quadratic in-out easing function
-				var val = Math.easeInOutQuad(currentTime, start, change, duration);
-				// move the document.body
-				move(val);
-				// do the animation unless its over
-				if (currentTime < duration) {
-					requestAnimFrame(animateScroll);
-				}
-				else {
-					if (callback && typeof(callback) === 'function') {
-						// the animation is done so lets callback
-						callback();
-					}
-				}
-			};
-			
-			animateScroll();
-			scroll_div.classList.add("scroll-container");
-
+			if (href != "studio.html" && href != "live.html" && (isIOSChrome ||
+				(isChromium !== null && typeof isChromium !== "undefined" &&
+					vendorName === "Google Inc." && isOpera === false && isIEedge === false))) {
+				e.preventDefault();
+        		slowScrollToggleClass(pos, href);
+    			sole.log("else is happening with timeout");
+			}	
 		}
-
-		init();
-	})();
-
-	//-------------------- Unimportant js functions --------------------
-	// easing functions https://goo.gl/5HLl8
-	//t = current time
-	//b = start value
-	//c = change in value
-	//d = duration
-	Math.easeInOutQuad = function(t, b, c, d) {
-		t /= d / 2;
-		if (t < 1) {
-			return c / 2 * t * t + b
-		}
-		t--;
-		return -c / 2 * (t * (t - 2) - 1) + b;
-	};
-
-	Math.easeInCubic = function(t, b, c, d) {
-		var tc = (t /= d) * t * t;
-		return b + c * (tc);
-	};
-
-	Math.inOutQuintic = function(t, b, c, d) {
-		var ts = (t /= d) * t,
-			tc = ts * t;
-		return b + c * (6 * tc * ts + -15 * ts * ts + 10 * tc);
-	};
-
-	function isDomElement(obj) {
-		return obj instanceof Element;
-	}
-
-	function isMouseEvent(obj) {
-		return obj instanceof MouseEvent;
-	}
-
-	function findScrollingElement(element) { //FIXME Test this too
-		do {
-			if (element.clientHeight < element.scrollHeight || element.clientWidth < element.scrollWidth) {
-				return element;
-			}
-		} while (element = element.parentNode);
-	}
-})
