@@ -33,7 +33,7 @@
 			console.log("triggered"); //debug
 			console.log(pos);
 			
-			if (href != "studio.html" && href != "live.html" && (isIOSChrome ||
+			if (href != "studio.html" && href != "live.html" && href != "index.html" && (isIOSChrome ||
 				(isChromium !== null && typeof isChromium !== "undefined" &&
 					vendorName === "Google Inc." && isOpera === false && isIEedge === false))) {
 				e.preventDefault();

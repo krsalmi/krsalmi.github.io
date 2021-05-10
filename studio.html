@@ -112,14 +112,14 @@
                     </div>
                 </div>
             </div>
-            <div class="videowrapper">
-            <div class="team_video">
-             <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/7jyU8H6twWY" 
-                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-                        gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+            <div id="videowrapper">
+				<div class="team_video">
+				<iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/7jyU8H6twWY" 
+						frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+							gyroscope; picture-in-picture" allowfullscreen>
+					</iframe>
+				</div>
+        	</div>
         </section>
         <section id="sect_contact">
             <div class="under_navbar"></div>
@@ -155,6 +155,26 @@
 			var pos = $("#scroll-container").scrollTop();
 			handleScroll(e, href, pos);
 		});
+
+		//Youtube video, responsive
+		$(document).ready(function() {
+			setVideoSize();
+		});
+
+
+		$(window).resize(function() {
+			//Same on resize */
+			setVideoSize();
+		});
+
+
+		function setVideoSize() {
+
+			let h = window.innerHeight - $("#navbar").height() - $("#team").height() - 40;
+			let maxWidth = h / 9 * 16;
+
+			document.getElementById("videowrapper").style.maxWidth = maxWidth + "px";
+		}
 	</script>
 </body>
 </html>

@@ -29,7 +29,7 @@ body a:hover {
     width: 100vw;
     background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
     background: rgba(204, 204, 204, 0.4);
-    height: 65px;
+    height: 85px;
     overflow: hidden;
     position: fixed !important;
     top: 0;
@@ -47,9 +47,27 @@ body a:hover {
     float: right;
     color: white;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 24px;
     width: 20%; /* Five links of equal widths */
     text-align: center;
+}
+
+.under_navbar {
+	height: 85px;
+	background-color: rgb(255, 255, 255);
+  }
+
+@media screen and (max-height: 1000px),
+	screen and (max-width: 1200px) {
+	.navbar {
+		height: 65px;
+	}
+	.under_navbar {
+		height: 65px;
+	}
+	.to_be_hidden a {
+		font-size: 17px;
+	}
 }
     
 .to_front_page {
@@ -84,7 +102,7 @@ body a:hover {
 }
 
 /* control styling if window is small */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 880px) {
     .to_front_page {
       position: absolute;
       top:8px;
@@ -346,8 +364,9 @@ body a:hover {
     text-align: center;
 }
 
-.videowrapper {
+#videowrapper {
   width:100%;
+  padding: 20px;
   max-width: 600px;
   margin: auto;
 }
@@ -591,10 +610,5 @@ section {
   scroll-snap-align: start;
   /* scroll-snap-stop: always; */
   position: relative;
-}
-
-.under_navbar {
-  height: 65px;
-  background-color: rgb(255, 255, 255);
 }
 

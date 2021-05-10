@@ -98,7 +98,7 @@
 				<div class="container">
 					<!-- Carousel row -->
 					<div class="row">
-						<div class="col col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+						<div class="col col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-12 offset-xl-0">
 							<!-- Carousel -->
 							<div id="carousel-example" class="carousel slide" data-interval="false">
 								<ol class="carousel-indicators">
@@ -118,8 +118,8 @@
 									</div>
 									<div class="carousel-item">
 										<div class="embed-responsive embed-responsive-16by9">
-											<iframe width="560" height="315" src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-										</div>
+											<iframe width="896" height="504" src="https://www.youtube.com/embed/7jyU8H6twWY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div> <!--width 560 height 315-->
 									</div>
 									<div class="carousel-item">
 										<div class="embed-responsive embed-responsive-16by9">
@@ -143,7 +143,7 @@
 									</div>
 									<div class="carousel-item">
 										<div class="embed-responsive embed-responsive-16by9">
-											<iframe width="560" height="315" src="https://www.youtube.com/embed/HKlPts9p7hY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											<iframe src="https://www.youtube.com/embed/HKlPts9p7hY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 										</div>
 									</div>
 								</div>
@@ -163,12 +163,18 @@
 							<!-- End carousel -->
 						</div>
 					</div>
+					<div class="row">
+						<div class="col col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-12 offset-xl-0">
+							<div id="spotify-frame" class="embed-responsive">
+								<iframe src="https://open.spotify.com/embed/album/4EcDfXLoDwzHD9Ox6nkKOr" width="1000"
+									height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+							</div>
+						</div>
+					</div>
+				
 					<!-- End carousel row -->
 				</div>
-				<div class="spotify_div">
-					<iframe src="https://open.spotify.com/embed/album/4EcDfXLoDwzHD9Ox6nkKOr" width="540"
-						height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-				</div>
+				
 			</div>
         </section>
         <section id="sect_shop">
@@ -261,33 +267,40 @@
 		});
 
 
-//Making spotify embedding responsive from https://stackoverflow.com/questions/13039311/making-spotify-embeds-responsive, solution
-//by Suplanus. I've made some changes to the solution
-		$(document).ready(function() {
-    /* Make Spotify fit initial layout */
-		respondify();
+//Spotify embed to show multiple songs, if the screen is a certain size
+	$(document).ready(function() {
+		setSpotifyHeight();
 	});
 
 
 	$(window).resize(function() {
-		/* Make Spotify fit layout on resize */
-		respondify();
+		//Same on resize */
+		setSpotifyHeight();
 	});
 
 
-	function respondify() {
-		$('body').find('iframe[src*="spotify.com/"]').each(function() {
-			var w = $(this).parent(1).width();
-			if (w > 540) {
-				w = 540;
+	function setSpotifyHeight() {
+		let h = window.innerHeight;
+		let w = window.innerWidth;
+		let frameHeight = 80;
+
+		if (w >= 1200 && h >= 1100) {
+			frameHeight = 207;
+		} else if ( w < 768){
+			if (h > 750 && h < 830) {
+				frameHeight = 207;
+			} else if (h >= 830 && h < 900) {
+				frameHeight = 300;
+			} else if (h >= 900 && h < 1010) {
+				frameHeight = 400;
+			} else if ( h >= 1010) {
+				frameHeight = 490;
 			}
-			$(this).css('width', w + 'px');
+		}
+		// console.log("width " + w)
+		// console.log("height " + h)
 
-			var h = 80;
-			$(this).css('height', h + 'px');
-
-			$(this).attr('src',$(this).attr('src'));
-		});
+		$("#spotify-frame").height(frameHeight);
 
 	}
     </script>
