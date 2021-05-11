@@ -98,7 +98,7 @@
 				<div class="container">
 					<!-- Carousel row -->
 					<div class="row">
-						<div class="col col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-12 offset-xl-0">
+						<div class="col col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-12 offset-xl-0">
 							<!-- Carousel -->
 							<div id="carousel-example" class="carousel slide" data-interval="false">
 								<ol class="carousel-indicators">
@@ -164,7 +164,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-12 offset-xl-0">
+						<div class="col col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-12 offset-xl-0">
 							<div id="spotify-frame" class="embed-responsive">
 								<iframe src="https://open.spotify.com/embed/album/4EcDfXLoDwzHD9Ox6nkKOr" width="1000"
 									height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -180,7 +180,7 @@
         <section id="sect_shop">
             <div class="under_navbar"></div>
 			<div class="services">
-				<div class="sub-title">
+				<div id="title_shop" class="sub-title">
 					<div class="centered">
 						<div class="underline_box">
 							<h1><span class="header_p hover-3 hover_blue">Shop</span></h1>
@@ -188,7 +188,7 @@
 						<p class="lead">Our merch is sold on teespring.com</p>
 					</div>
 				</div>
-				<div class="flex_merch">
+				<div id="flex_merch" class="flex_merch">
 					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/t_shirt_adidas.jpg"></a></div>
 					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/hoodie_black.jpg"></a></div>
 					<div class="shop_item"><a href="https://teespring.com" alt="teespring"><img src="img/t_shirt_blue.jpg"></a></div>
@@ -266,43 +266,88 @@
 			handleScroll(e, href, pos);
 		});
 
+		//Set size for title text areas according to screen size
+		$(document).ready(function() {
+			setTitleDivSize();
+			setSpotifyHeight();
+			centerShopItems();
+			positionContactDiv()
+		});
+
+
+		$(window).resize(function() {
+			//Same on resize */
+			setTitleDivSize();
+			setSpotifyHeight();
+			centerShopItems();
+			positionContactDiv()
+		});
+
+
+		function setTitleDivSize() {
+			let h = window.innerHeight;
+			let titleHeight = 80;
+			let calc = h * 0.13;
+			calc = Math.floor(calc/10) * 10;
+
+			if (calc > titleHeight) {
+				titleHeight = calc;
+			}
+
+			$("#media").height(titleHeight);
+			
+	}
+
 
 //Spotify embed to show multiple songs, if the screen is a certain size
-	$(document).ready(function() {
-		setSpotifyHeight();
-	});
+		function setSpotifyHeight() {
+			let h = window.innerHeight;
+			let w = window.innerWidth;
+			let frameHeight = 80;
+			let remaining = 0;
 
-
-	$(window).resize(function() {
-		//Same on resize */
-		setSpotifyHeight();
-	});
-
-
-	function setSpotifyHeight() {
-		let h = window.innerHeight;
-		let w = window.innerWidth;
-		let frameHeight = 80;
-
-		if (w >= 1200 && h >= 1100) {
-			frameHeight = 207;
-		} else if ( w < 768){
-			if (h > 750 && h < 830) {
-				frameHeight = 207;
-			} else if (h >= 830 && h < 900) {
-				frameHeight = 300;
-			} else if (h >= 900 && h < 1010) {
-				frameHeight = 400;
-			} else if ( h >= 1010) {
-				frameHeight = 490;
+			remaining = h - $("#navbar").outerHeight() - $("#carousel-example").height() - $("#media").outerHeight() - 100;
+			remaining = Math.floor(remaining/10) * 10;
+			console.log(remaining)
+			if (remaining > frameHeight) {
+				frameHeight = remaining;
 			}
-		}
-		// console.log("width " + w)
-		// console.log("height " + h)
+			
+			// console.log("width " + w)
+			// console.log("height " + h)
 
-		$("#spotify-frame").height(frameHeight);
-
+			$("#spotify-frame").height(frameHeight);
 	}
+
+	function centerShopItems() {
+		let items = document.querySelectorAll(".shop_item");
+		let imageWidth = 200; //change this, if image sizes change
+		let total = imageWidth * items.length;
+		let pos = 180;
+		let calc = window.innerHeight * 0.3;
+
+		if (window.innerHeight > 740) {
+			pos = calc;
+		}
+		$("#title_shop").height(pos);
+		$("#flex_merch").css('top', pos + 'px')
+		if (window.innerWidth > total) {
+			$("#flex_merch").css('justify-content', 'center');
+		} else {
+			$("#flex_merch").css('justify-content', '');
+		}
+	}
+
+	function positionContactDiv() {
+			let pos = 100;
+			let calc = window.innerHeight * 0.2;
+
+			if (window.innerHeight > 740) {
+				pos = calc;
+			}
+			$("#contact").css('padding-top', pos + 'px');
+		}
+
     </script>
 </body>
 </html>

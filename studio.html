@@ -75,7 +75,7 @@
         <section id="sect_services">
             <div class="under_navbar"></div>
             <div id="services" class="services">
-                <div class="sub-title">
+                <div id="title_services" class="sub-title">
                     <div class="centered">
                         <div class="underline_box">
                             <h1><span class="header_p hover-3 hover">Services & booking</span></h1>
@@ -83,7 +83,7 @@
                         <br><p class="lead">Some information about the sevices and booking part</br></p>
                     </div>
                 </div>
-                <div class="float_container">
+                <div id="float_container" class="float_container">
                     <a href="#"><div id="cont_services_left" class="split_studio underline_box">
                         <div class="left_studio"></div>
                         <div id="text_koko" class="center_on_left_side"><h1><span class="hover hover-3" 
@@ -159,22 +159,54 @@
 		//Youtube video, responsive
 		$(document).ready(function() {
 			setVideoSize();
+			setContainerPos();
+			positionContactDiv();
 		});
 
 
 		$(window).resize(function() {
 			//Same on resize */
 			setVideoSize();
+			setContainerPos();
+			positionContactDiv();
 		});
 
 
 		function setVideoSize() {
 
-			let h = window.innerHeight - $("#navbar").height() - $("#team").height() - 40;
+			let h = window.innerHeight - $("#navbar").outerHeight() - $("#team").outerHeight() - 40;
 			let maxWidth = h / 9 * 16;
 
 			document.getElementById("videowrapper").style.maxWidth = maxWidth + "px";
 		}
+
+		//position sevices float container according to screen size
+		function setContainerPos() {
+
+			let cont = $("#float_container").height();
+			let pos = $("#title_services").height();
+			let h = window.innerHeight - $("#navbar").outerHeight() - pos;
+			
+			if (h > cont) {
+				pos += h - cont;
+				
+			} else {
+				pos = 180
+			}
+			$("#title_services").height(pos);
+			$("#float_container").css('top', pos + 'px');
+		}
+
+		function positionContactDiv() {
+			let pos = 100;
+			let calc = window.innerHeight * 0.2;
+
+			if (window.innerHeight > 740) {
+				pos = calc;
+			}
+			$("#contact").css('padding-top', pos + 'px');
+		}
+
 	</script>
 </body>
 </html>
