@@ -98,7 +98,7 @@
 				<div class="container">
 					<!-- Carousel row -->
 					<div class="row">
-						<div class="col col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-12 offset-xl-0">
+						<div id="video_box" class="col col-md-10 offset-md-1">
 							<!-- Carousel -->
 							<div id="carousel-example" class="carousel slide" data-interval="false">
 								<ol class="carousel-indicators">
@@ -164,7 +164,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-12 offset-xl-0">
+						<div id="spotify_box" class="col col-md-10 offset-md-1">
 							<div id="spotify-frame" class="embed-responsive">
 								<iframe src="https://open.spotify.com/embed/album/4EcDfXLoDwzHD9Ox6nkKOr" width="1000"
 									height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -269,7 +269,7 @@
 		//Set size for title text areas according to screen size
 		$(document).ready(function() {
 			setTitleDivSize();
-			setSpotifyHeight();
+			setMediaClasses();
 			centerShopItems();
 			positionContactDiv()
 		});
@@ -278,7 +278,7 @@
 		$(window).resize(function() {
 			//Same on resize */
 			setTitleDivSize();
-			setSpotifyHeight();
+			setMediaClasses();
 			centerShopItems();
 			positionContactDiv()
 		});
@@ -287,8 +287,8 @@
 		function setTitleDivSize() {
 			let h = window.innerHeight;
 			let titleHeight = 80;
-			let calc = h * 0.13;
-			calc = Math.floor(calc/10) * 10;
+			let calc = h * 0.12;
+			calc = Math.floor(calc/10) * 12;
 
 			if (calc > titleHeight) {
 				titleHeight = calc;
@@ -296,6 +296,30 @@
 
 			$("#media").height(titleHeight);
 			
+	}
+
+	//
+	function setMediaClasses() {
+	
+		let h = window.innerHeight;
+		let w = window.innerWidth;
+		let video = document.getElementById("video_box");
+		let spot = document.getElementById("spotify_box");
+
+		if (h > 790) {
+			video.classList.add("col-lg-10", "offset-lg-1");
+			spot.classList.add("col-lg-10", "offset-lg-1");
+			
+			if (h > 1015) {
+			video.classList.add("col-xl-12 offset-xl-0");
+			spot.classList.add("col-xl-12 offset-xl-0");
+			}
+		}
+		else {
+			video.classList.remove("col-lg-10", "offset-lg-1", "col-xl-12", "offset-xl-0");
+			spot.classList.remove("col-lg-10", "offset-lg-1", "col-xl-12", "offset-xl-0");
+		}
+		setSpotifyHeight();
 	}
 
 
@@ -308,13 +332,13 @@
 
 			remaining = h - $("#navbar").outerHeight() - $("#carousel-example").height() - $("#media").outerHeight() - 100;
 			remaining = Math.floor(remaining/10) * 10;
-			console.log(remaining)
-			if (remaining > frameHeight) {
+			console.log("spot remaining ", remaining)
+			if (remaining > (frameHeight + 100)) {
 				frameHeight = remaining;
 			}
 			
-			// console.log("width " + w)
-			// console.log("height " + h)
+			console.log("width " + w)
+			console.log("height " + h)
 
 			$("#spotify-frame").height(frameHeight);
 	}
